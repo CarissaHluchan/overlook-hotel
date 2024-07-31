@@ -1,0 +1,42 @@
+.search-room-form {
+    color: var(--white);
+    background-color: var(--tertiary-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+    height: clamp(50px, 5vh, 70px);
+    width: clamp(382px, 60vw, 1300px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* border: 1px solid black; */
+  }
+  
+  search {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  .search-book-your-stay {
+    margin-left: 1vw;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    font-size: clamp(13px, 1vw, 25px);
+    font-weight: 600;
+    flex: 0 2 18%;
+  }
+  
+  .filter-label,
+  .filter-input {
+    font-size: clamp(10px, 1vw, 20px);
+    flex: 0 2 23%;
+  }
+  
+  .search-button {
+    margin-right: 1vw;
+  }
