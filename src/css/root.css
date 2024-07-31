@@ -1,0 +1,55 @@
+:root {
+    --text-white: #FFFFFF;
+    --text-black: #000000;
+    --primary-color: #324031;
+    --secondary-color: #504F59;
+    --tertiary-color: #E4E9F2;
+    --accent-color: #86D0F2;
+    --second-acc-color: #8C7C2A;
+    --font-family: "Cinzel Decorative", serif;
+    --box-shadow: 5px 5px 5px black;
+    --text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 10px white;
+  }
+  
+  body {
+    /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    margin: 0;
+  }
+  
+  button {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-size: clamp(10px, 1vw, 16px);
+    font-weight: 600;
+    font-style: normal;
+    padding: 0.5vw;
+    border-radius: 5px;
+    border-style: solid;
+    color: var(--white);
+    background-color: var(--accent-color);
+    border-color: var(--black);
+  }
+  
+  /* width */
+  /* ::-webkit-scrollbar {
+      width: 10px;
+    } */
+  
+  /* Track */
+  /* ::-webkit-scrollbar-track {
+      background: var(--text-white);
+    } */
+  
+  /* Handle */
+  /* ::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    } */
+  
+  /* Handle on hover */
+  /* ::-webkit-scrollbar-thumb:hover {
+    background: var(--text-black);
+    } */

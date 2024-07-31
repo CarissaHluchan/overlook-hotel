@@ -1,0 +1,20 @@
+footer {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    height: clamp(84px, 5vh, 150px);
+    width: clamp(394px, 100%, 100%);
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+  footer p,
+  footer a {
+    font-size: clamp(10px, 1vw, 16px);
+  }
+  
+  footer a {
+    color: var(--text-white)
+  }
