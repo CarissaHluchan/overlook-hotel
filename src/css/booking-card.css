@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
   }
   
   .room-response {
@@ -34,7 +34,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 2px solid orange;
+    /* border: 2px solid orange; */
   }
   
   .room-info,
@@ -45,7 +45,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     align-content: flex-start;
-    border: 2px solid green;
+    /* border: 2px solid green; */
   }
   
   .response {
@@ -59,7 +59,7 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-    border: 3px solid cyan;
+    /* border: 3px solid cyan; */
   }
   
   .detele-room-booking {
