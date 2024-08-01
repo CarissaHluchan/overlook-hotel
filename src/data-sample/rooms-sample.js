@@ -46,6 +46,5 @@ export const roomsSampleData  = [
       "bedSize": "queen",
       "numBeds": 1,
       "costPerNight": 327.24
-    },
-    
+    }, 
 ] 
