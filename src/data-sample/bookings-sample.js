@@ -28,6 +28,13 @@ export const bookingsSampleData = [
   
     },
     {
+      "id": "5fwrgu4i7k55hl6s2",
+      "userID": 43,
+      "date": "2024/12/24",
+      "roomNumber": 24,
+  
+    },
+    {
       "id": "5fwrgu4i7k55hl6t6",
       "userID": 13,
       "date": "2022/01/10",

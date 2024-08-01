@@ -23,4 +23,8 @@ export const customersSampleData = [
     "id": 43,
     "name": "Earline Hamill"
   },
+  {
+    "id": 50,
+    "name": "Eldridge Muller"
+  }
 ]

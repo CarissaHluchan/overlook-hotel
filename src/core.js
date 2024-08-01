@@ -4,7 +4,7 @@ const { customersSampleData } = require('../src/data-sample/customers-sample');
 
 // console.log(bookingsSampleData )
 
-export const getRoomsByDate = ( date, bookings, rooms ) => {
+export const getRoomsByDate = (date, bookings, rooms) => {
     // date entered will always need to be a string in yyyy/mm/dd form
     const bookingByDate = bookings.filter(booking => booking.date === date);
     const bookedRooms = bookingByDate.map(booking => booking.roomNumber);
@@ -12,17 +12,34 @@ export const getRoomsByDate = ( date, bookings, rooms ) => {
     return availableRooms;
 }
 
-export const getRoomsByType = ( typeOf = [], rooms ) => {
-    const roomTypes = rooms.filter(room => room.roomType === typeOf)
+export const getRoomsByType = (typeOf = [], rooms) => {
+    const roomTypes = rooms.filter(room => room.roomType === typeOf);
     return roomTypes
 }
 
-export const getUsersPastBookings = () => {}
+export const getUsersBookings = (userID = [], bookings) => {
+    const usersBookings = bookings.filter(booking => booking.userID === userID);
+    return usersBookings
+}
 
-export const getUsersFutureBookings = () => {}
+export const getUsersPastAndFutureBookings = (usersBookings) => {
+    const now = new Date().valueOf();
+    const pastAndFutureBookings = usersBookings.reduce((acc, booking) => {
+        const bookingValue = new Date(booking.date).valueOf();
+        if (bookingValue < now) {
+            acc.past.push(booking)
+        } else {
+            acc.upcoming.push(booking)
+        }
+        return acc
+    }, { past: [], upcoming: [] });
+    return pastAndFutureBookings;
+}
 
-export const getTotalCost = () => {}
+export const getTotalCost = (usersBookings, rooms) => {
+    // iterate through a users booking
+}
 
-export const addRoomToBookings = () => {}
+export const addRoomToBookings = () => { }
 
-export const deleteRoomFromBookings = () => {}
+export const deleteRoomFromBookings = () => { }
