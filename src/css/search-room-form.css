@@ -1,7 +1,7 @@
 .search-room-form {
     color: var(--white);
     background-color: var(--tertiary-color);
-    box-shadow: var(--box-shadow);
+    box-shadow: var(--box-shadow-dark);
     border-radius: 5px;
     height: clamp(50px, 5vh, 70px);
     width: clamp(382px, 60vw, 1300px);

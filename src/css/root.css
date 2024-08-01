@@ -7,7 +7,8 @@
     --accent-color: #86D0F2;
     --second-acc-color: #8C7C2A;
     --font-family: "Cinzel Decorative", serif;
-    --box-shadow: 5px 5px 5px black;
+    --box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.272);
+    --box-shadow-dark: 5px 5px 5px black;
     --text-shadow: 1px 1px 2px white, 0 0 25px white, 0 0 10px white;
   }
   

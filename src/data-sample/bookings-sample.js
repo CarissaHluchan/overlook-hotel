@@ -7,6 +7,20 @@ export const bookingsSampleData = [
   
     },
     {
+      "id": "5fwrgu4i7k55hl6vu",
+      "userID": 9,
+      "date": "2022/01/16",
+      "roomNumber": 23,
+  
+    },
+    {
+      "id": "5fwrgu4i7k55hl6th",
+      "userID": 19,
+      "date": "2022/02/26",
+      "roomNumber": 15,
+  
+    },
+    {
       "id": "5fwrgu4i7k55hl6t5",
       "userID": 43,
       "date": "2022/01/24",

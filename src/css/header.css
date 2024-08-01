@@ -4,6 +4,7 @@ nav {
     align-items: center;
     height: clamp(65px, 5vh, 150px);
     width: clamp(394px, 100%, 100%);
+    border-bottom: 1px solid var(--secondary-color);
     /* border: 2px solid blue; */
   }
   
