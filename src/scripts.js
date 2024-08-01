@@ -12,20 +12,3 @@ import './images/delete.png'
 
 
 console.log('This is the JavaScript entry file - your code begins here.');
-
-
-export const getRoomsByDate = () => {}
-
-export const getRoomsByFilter = () => {}
-
-export const getAvailableRooms = () => {}
-
-export const getUsersPastBookings = () => {}
-
-export const getUsersFutureBookings = () => {}
-
-export const getTotalCost = () => {}
-
-export const addRoomToBooking = () => {}
-
-export const deleteRoomBooking = () => {}
