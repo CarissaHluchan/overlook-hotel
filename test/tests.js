@@ -360,7 +360,23 @@ describe('Total cost of a users bookings', () => {
         
         let expected = 470.92;
 
-        let results = getTotalCost(usersBookings, rooms)
+        let results = getTotalCost(usersBookings, rooms);
+
+        expect(results).to.deep.equal(expected);
+    });
+
+    it('Should return zero if a users has no bookings', () => {
+        let userID = 51;
+
+        let bookings = bookingsSampleData;
+
+        let usersBookings = getUsersBookings(userID, bookings);
+
+        let rooms = roomsSampleData;
+        
+        let expected = 0;
+
+        let results = getTotalCost(usersBookings, rooms);
 
         expect(results).to.deep.equal(expected);
     });

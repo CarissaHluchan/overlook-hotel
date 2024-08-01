@@ -37,7 +37,17 @@ export const getUsersPastAndFutureBookings = (usersBookings) => {
 }
 
 export const getTotalCost = (usersBookings, rooms) => {
-    // iterate through a users booking
+    const usersRooms = usersBookings.map(booking => booking.roomNumber)
+    const roomCosts = rooms.filter(room => {
+        if (usersRooms.includes(room.number)) {
+            return room
+        }
+    })
+    const totalCost = roomCosts.reduce((acc, room) => {
+        acc += room.costPerNight
+        return acc
+    }, 0)
+    return totalCost
 }
 
 export const addRoomToBookings = () => { }
