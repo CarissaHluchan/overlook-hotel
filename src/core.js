@@ -1,25 +1,21 @@
-const controlBookings = require('../src/data-sample/bookings-sample');
-const controlRooms = require('../src/data-sample/rooms-sample');
-const controlCustomer = require('../src/data-sample/customers-sample');
+const { bookingsSampleData } = require('../src/data-sample/bookings-sample');
+const { roomsSampleData } = require('../src/data-sample/rooms-sample');
+const { customersSampleData } = require('../src/data-sample/customers-sample');
+
+// console.log(bookingsSampleData )
 
 export const getRoomsByDate = ( date, bookings, rooms ) => {
-    const booking = bookings.filter(booking => {
-        if (booking.date === date) {
-            return booking
-        }
-    })
-    // console.log(booking)
-    const availableRooms = rooms.filter(room =>
-
-    )
+    // date entered will always need to be a string in yyyy/mm/dd form
+    const bookingByDate = bookings.filter(booking => booking.date === date);
+    const bookedRooms = bookingByDate.map(booking => booking.roomNumber);
+    const availableRooms = rooms.filter(room => !bookedRooms.includes(room.number));
+    return availableRooms;
 }
 
-getRoomsByDate( "2022/01/16", controlBookings, controlRooms)
-
-
-export const getRoomsByFilter = () => {}
-
-export const getRoomsByFilterOnly = () => {}
+export const getRoomsByType = ( typeOf = [], rooms ) => {
+    const roomTypes = rooms.filter(room => room.roomType === typeOf)
+    return roomTypes
+}
 
 export const getUsersPastBookings = () => {}
 
