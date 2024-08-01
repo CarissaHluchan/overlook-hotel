@@ -1,21 +1,5 @@
-const { bookingsSampleData } = require('../src/data-sample/bookings-sample');
-const { roomsSampleData } = require('../src/data-sample/rooms-sample');
-const { customersSampleData } = require('../src/data-sample/customers-sample');
-
-// console.log(bookingsSampleData )
-
-export const getRoomsByDate = (date, bookings, rooms) => {
-    // date entered will always need to be a string in yyyy/mm/dd form
-    const bookingByDate = bookings.filter(booking => booking.date === date);
-    const bookedRooms = bookingByDate.map(booking => booking.roomNumber);
-    const availableRooms = rooms.filter(room => !bookedRooms.includes(room.number));
-    return availableRooms;
-}
-
-export const getRoomsByType = (typeOf = [], rooms) => {
-    const roomTypes = rooms.filter(room => room.roomType === typeOf);
-    return roomTypes
-}
+const { bookingsSampleData } = require('./data-sample/bookings-sample');
+const { roomsSampleData } = require('./data-sample/rooms-sample');
 
 export const getUsersBookings = (userID = [], bookings) => {
     const usersBookings = bookings.filter(booking => booking.userID === userID);
@@ -49,7 +33,3 @@ export const getTotalCost = (usersBookings, rooms) => {
     }, 0)
     return totalCost
 }
-
-export const addRoomToBookings = () => { }
-
-export const deleteRoomFromBookings = () => { }
