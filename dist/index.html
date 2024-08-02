@@ -50,7 +50,7 @@
     </header>
     <main>
       <section class="section-header" roll="sectionhaed">
-        <h3>Rooms available</h3>
+        <h3>Rooms at Overlook</h3>
       </section>
       <section class="main-search-results">
         <article class="booking-card">
@@ -59,6 +59,7 @@
               <p>Room type:</p>
               <p>Bed size:</p>
               <p>Number of Beds:</p>
+              <p>Bedet:</p>
               <p>Room number:</p>
             </div>
             <div class="room-cost">
@@ -67,16 +68,82 @@
           </div>
           <div class="room-response">
             <div class="room-info response">
-              <p>residential suite</p>
-              <p>queen</p>
-              <p>1</p>
-              <p>1</p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
             </div>
             <div class="room-cost response">
-              <p>$358.4</p>
+              <p></p>
             </div>
           </div>
-
+        </article>
+      </section>
+    </main>
+    <footer>
+      <p>Created By: Carissa Hluchan</p>
+      <a href="https://github.com/CarissaHluchan/overlook-hotel">See it on Github</a>
+    </footer>
+  </div>
+  <div class="search-results-page">
+    <header>
+      <nav>
+        <div class="logo-name">
+          <img src="./images/overlooklogo.png" alt="overlook hotel logo">
+          <h2>Overlook Hotel</h2>
+        </div>
+        <button class="login">Login</button>
+      </nav>
+      <div class="overlook-picture">
+        <div class="title-message">
+          <p class="welcome-to">Welcome to the</p>
+          <h1 class="title">Overlook Hotel</h1>
+        </div>
+        <form class="search-room-form">
+          <p class="search-book-your-stay">Book Your Stay</p>
+          <search>
+            <label class="filter-label" for="start"> Enter the Date:</label>
+            <input class="filter-input" type="date" name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01"
+              max="2030-12-31">
+          </search>
+          <search>
+            <label class="filter-label">Filter by Room Type:</label>
+            <input class="filter-input" text="Pick a room type"></input>
+          </search>
+          <button type="button" class="search-button">Search</button>
+        </form>
+    </header>
+    <main>
+      <section class="section-header" roll="sectionhaed">
+        <h3>Rooms available on mm/dd/yyyy</h3>
+      </section>
+      <section class="main-search-results">
+        <article class="booking-card">
+          <div class="room-details">
+            <div class="room-info">
+              <p>Room type:</p>
+              <p>Bed size:</p>
+              <p>Number of Beds:</p>
+              <p>Bedet:</p>
+              <p>Room number:</p>
+            </div>
+            <div class="room-cost">
+              <p>Cost per night:</p>
+            </div>
+          </div>
+          <div class="room-response">
+            <div class="room-info response">
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+            <div class="room-cost response">
+              <p></p>
+            </div>
+          </div>
         </article>
       </section>
     </main>
@@ -92,7 +159,6 @@
           <img src="./images/overlooklogo.png" alt="overlook hotel logo">
           <h2>Overlook Hotel</h2>
         </div>
-        <button class="login">Login</button>
       </nav>
       <div class="overlook-picture">
         <div class="title-message">
@@ -127,6 +193,9 @@
             <label for="pwd">Password:</label><br>
             <input type="password" id="pwd" name="pwd">
           </div>
+          <div>
+            <button type="button">Sign In</button>
+          </div>
         </form>
       </section>
     </main>
@@ -142,7 +211,7 @@
           <img src="./images/overlooklogo.png" alt="overlook hotel logo">
           <h2>Overlook Hotel</h2>
         </div>
-        <button class="login">Login</button>
+        <button class="login">Sign Out</button>
       </nav>
       <div class="overlook-picture">
         <div class="title-message">
@@ -177,9 +246,11 @@
             <article class="booking-card">
               <div class="room-details">
                 <div class="room-info">
+                  <p>Date:</p>
                   <p>Room type:</p>
                   <p>Bed size:</p>
                   <p>Number of Beds:</p>
+                  <p>Bedet:</p>
                   <p>Room number:</p>
                 </div>
                 <div class="room-cost">
@@ -188,9 +259,11 @@
               </div>
               <div class="room-response">
                 <div class="room-info response">
+                  <p> 12/22/2023</p>
                   <p>residential suite</p>
                   <p>queen</p>
                   <p>1</p>
+                  <p>True</p>
                   <p>1</p>
                 </div>
                 <div class="room-cost response">
@@ -209,9 +282,11 @@
             <article class="booking-card">
               <div class="room-details">
                 <div class="room-info">
+                  <p>Date:</p>
                   <p>Room type:</p>
                   <p>Bed size:</p>
                   <p>Number of Beds:</p>
+                  <p>Bedet:</p>
                   <p>Room number:</p>
                 </div>
                 <div class="room-cost">
@@ -220,115 +295,11 @@
               </div>
               <div class="room-response">
                 <div class="room-info response">
+                  <p> 12/22/2023</p>
                   <p>residential suite</p>
                   <p>queen</p>
                   <p>1</p>
-                  <p>1</p>
-                </div>
-                <div class="room-cost response">
-                  <p>$358.4</p>
-                </div>
-              </div>
-              <form class="booking-options">
-                <img type="button" class="detele-room-booking" src="./images/delete.png" alt="detele room from booking">
-              </form>
-            </article>
-          </section>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p>Created By: Carissa Hluchan</p>
-      <a href="https://github.com/CarissaHluchan/overlook-hotel">See it on Github</a>
-    </footer>
-  </div>
-  <div class="user-bookings-dashboard">
-    <header>
-      <nav>
-        <div class="logo-name">
-          <img src="./images/overlooklogo.png" alt="overlook hotel logo">
-          <h2>Overlook Hotel</h2>
-        </div>
-        <button class="login">Login</button>
-      </nav>
-      <div class="overlook-picture">
-        <div class="title-message">
-          <p class="welcome-to">Welcome to the</p>
-          <h1 class="title">Overlook Hotel</h1>
-        </div>
-        <form class="search-room-form">
-          <p class="search-book-your-stay">Book Your Stay</p>
-          <search>
-            <label class="filter-label" for="start"> Enter the Date:</label>
-            <input class="filter-input" type="date" name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01"
-              max="2030-12-31">
-          </search>
-          <search>
-            <label class="filter-label">Filter by Room Type:</label>
-            <input class="filter-input" text="Pick a room type"></input>
-          </search>
-          <button type="button" class="search-button">Search</button>
-        </form>
-    </header>
-    <main>
-      <section class="section-header" roll="sectionhaed">
-        <h3>Hello ${user}, these are all your room bookings</h3>
-      </section>
-      <section class="user-rooms">
-        <div class="user-rooms-search-and-past">
-          <section class="user-section-header" roll="sectionhaed">
-            <h4>All rooms available on mm/dd/yyyy:</h4>
-          </section>
-          <section class="user-bookings-section">
-            <article class="booking-card">
-              <div class="room-details">
-                <div class="room-info">
-                  <p>Room type:</p>
-                  <p>Bed size:</p>
-                  <p>Number of Beds:</p>
-                  <p>Room number:</p>
-                </div>
-                <div class="room-cost">
-                  <p>Cost per night:</p>
-                </div>
-              </div>
-              <div class="room-response">
-                <div class="room-info response">
-                  <p>residential suite</p>
-                  <p>queen</p>
-                  <p>1</p>
-                  <p>1</p>
-                </div>
-                <div class="room-cost response">
-                  <p>$358.4</p>
-                </div>
-              </div>
-            </article>
-          </section>
-        </div>
-        <div class="user-upcoming-bookings">
-          <section class="user-section-header" roll="sectionhaed">
-            <h5>Upcoming Bookings:</h5>
-            <p class="total-cost">Total Cost $5,400</p>
-          </section>
-          <section class="future-bookings-section">
-            <article class="booking-card">
-              <div class="room-details">
-                <div class="room-info">
-                  <p>Room type:</p>
-                  <p>Bed size:</p>
-                  <p>Number of Beds:</p>
-                  <p>Room number:</p>
-                </div>
-                <div class="room-cost">
-                  <p>Cost per night:</p>
-                </div>
-              </div>
-              <div class="room-response">
-                <div class="room-info response">
-                  <p>residential suite</p>
-                  <p>queen</p>
-                  <p>1</p>
+                  <p>True</p>
                   <p>1</p>
                 </div>
                 <div class="room-cost response">
@@ -355,7 +326,7 @@
           <img src="./images/overlooklogo.png" alt="overlook hotel logo">
           <h2>Overlook Hotel</h2>
         </div>
-        <button class="login">Login</button>
+        <button class="login">Sign Out</button>
       </nav>
       <div class="overlook-picture">
         <div class="title-message">
@@ -389,9 +360,11 @@
             <article class="booking-card">
               <div class="room-details">
                 <div class="room-info">
+                  <p>Date:</p>
                   <p>Room type:</p>
                   <p>Bed size:</p>
                   <p>Number of Beds:</p>
+                  <p>Bedet:</p>
                   <p>Room number:</p>
                 </div>
                 <div class="room-cost">
@@ -400,9 +373,11 @@
               </div>
               <div class="room-response">
                 <div class="room-info response">
+                  <p> 12/22/2023</p>
                   <p>residential suite</p>
                   <p>queen</p>
                   <p>1</p>
+                  <p>True</p>
                   <p>1</p>
                 </div>
                 <div class="room-cost response">
@@ -424,9 +399,11 @@
             <article class="booking-card">
               <div class="room-details">
                 <div class="room-info">
+                  <p>Date:</p>
                   <p>Room type:</p>
                   <p>Bed size:</p>
                   <p>Number of Beds:</p>
+                  <p>Bedet:</p>
                   <p>Room number:</p>
                 </div>
                 <div class="room-cost">
@@ -435,9 +412,11 @@
               </div>
               <div class="room-response">
                 <div class="room-info response">
+                  <p> 12/22/2023</p>
                   <p>residential suite</p>
                   <p>queen</p>
                   <p>1</p>
+                  <p>True</p>
                   <p>1</p>
                 </div>
                 <div class="room-cost response">
