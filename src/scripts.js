@@ -5,10 +5,76 @@
 import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
+/**------------------------// Images //----------------------------*/
 import './images/turing-logo.png'
 import './images/overlooklogo.png'
 import './images/overlook.png'
 import './images/delete.png'
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+// console.log('This is the JavaScript entry file - your code begins here.');
+
+
+/**-----------------// Global Varibles //--------------------------*/
+var user = {};
+var allBookings = [...bookings];
+var allRooms = [...rooms];
+var filteredRooms = [...rooms];
+var roomFilters = { date: /**function call here */, roomType: '', bedSize: '' };
+
+
+
+/**--------------------// DOM Nodes //----------------------------*/
+/*----// Page Views //----*/
+const landingPage = document.querySelector('.landing-page');
+const searchResultsPage = document.querySelector('.search-results-page');
+const loginPage = document.querySelector('.login-page');
+const userDashboard = document.querySelector('.user-dashboard');
+const userSearchResultsPage = document.querySelector('.user-search-results-page');
+
+/*----// Buttons //----*/
+const goToLandingPageButton = document.getElementById('goToLandingPageButton');
+const goToUsersDashboardButton = document.getElementById('gotToUserDashboardButton');
+
+
+
+/**-------------------// Page Views //---------------------------*/
+function showLandingPage() {
+    landingPage.classList.remove('hidden');
+    searchResultsPage.classList.add('hidden');
+    loginPage.classList.add('hidden');
+    userDashboard.classList.add('hidden');
+    userSearchResultsPage.add('hidden');
+}
+
+function showSearchResultsPage() {
+    landingPage.classList.add('hidden');
+    searchResultsPage.classList.remove('hidden');
+    loginPage.classList.add('hidden');
+    userDashboard.classList.add('hidden');
+    userSearchResultsPage.add('hidden');
+}
+
+function showLoginPage() {
+    landingPage.classList.add('hidden');
+    searchResultsPage.classList.add('hidden');
+    loginPage.classList.remove('hidden');
+    userDashboard.classList.add('hidden');
+    userSearchResultsPage.add('hidden');
+}
+
+function showUserDashboard() {
+    landingPage.classList.add('hidden');
+    searchResultsPage.classList.add('hidden');
+    loginPage.classList.add('hidden');
+    userDashboard.classList.remove('hidden');
+    userSearchResultsPage.add('hidden');
+}
+
+function showUserSearchResultsPage() {
+    landingPage.classList.add('hidden');
+    searchResultsPage.classList.add('hidden');
+    loginPage.classList.add('hidden');
+    userDashboard.classList.add('hidden');
+    userSearchResultsPage.remove('hidden');
+}
