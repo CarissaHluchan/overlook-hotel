@@ -42,7 +42,6 @@
     width: clamp(177px, 15vw, 225px);
   }
   
-  
   .user-bookings-section,
   .future-bookings-section {
     height: 65vh;
@@ -62,11 +61,11 @@
   
   /* ---------------------------------------User-Search-section------------------------------------- */
   
-  .user-search-result-dashboard h4 {
+  .user-search-results-page h4 {
     width: clamp(405px, 43vw, 680px);
   }
   
-  .user-search-result-dashboard .user-bookings-section .booking-options {
+  .user-search-results-page .user-bookings-section .booking-options {
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;

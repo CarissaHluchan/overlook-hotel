@@ -1,28 +1,30 @@
 // This is the JavaScript entry file - your code begins here
 // Do not delete or rename this file ********
 
+/**------------------------// Imports //----------------------------*/
 // An example of how you tell webpack to use a CSS (SCSS) file
 import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
-/**------------------------// Images //----------------------------*/
+/*---// Images //---*/
 import './images/turing-logo.png'
 import './images/overlooklogo.png'
 import './images/overlook.png'
 import './images/delete.png'
 
+/*---// domUpdates //---*/
+import './domUpdates.js'
 
-// console.log('This is the JavaScript entry file - your code begins here.');
-
+/*---// CORE Functions //---*/
+import './users.js'
+import './rooms.js'
 
 /**-----------------// Global Varibles //--------------------------*/
-var user = {};
-var allBookings = [...bookings];
-var allRooms = [...rooms];
-var filteredRooms = [...rooms];
+// var user = {};
+// var allBookings = [...bookings];
+// var allRooms = [...rooms];
+// var filteredRooms = [...rooms];
 var roomFilters = { date: '', roomType: '', bedSize: '' };
-
-
 
 /**--------------------// DOM Nodes //----------------------------*/
 /*----// Page Views //----*/
@@ -34,52 +36,27 @@ const userSearchResultsPage = document.querySelector('.user-search-results-page'
 
 /*----// Buttons //----*/
 /** Name and Logo */
-const goToLandingPageButton = document.querySelector('go-to-laning-page-button');
+const goToLandingPageButton = document.querySelector('.go-to-laning-page-button');
 const goToUsersDashboardButton = document.querySelector('.go-to-user-dashboard-button');
 /* Login */
+const loginButton = document.querySelector('.login');
+const signOutButton = document.querySelector('.sign-out');
 /* Search */
-const landingPageSearchButton = document.querySelector('landing-page-search-button');
-const userRoomSeachButton = document.querySelector('user-room-search-button');
+const landingPageSearchButton = document.querySelector('.landing-page-search-button');
+const userRoomSeachButton = document.querySelector('.user-room-search-button');
+/* Booking */
+const bookThisRoomButton = document.querySelector('.book-room-button');
+const deleteThisBookingButton = document.querySelector('.detele-room-booking');
+
+/*----// Filters //----*/
+const filterByDate = document.querySelector('.filter-by-date');
+const filterByRoomType = document.querySelector('.filter-by-room-type');
+
+/**-------------------// Event Listeners //---------------------------*/
 
 
 
-/**-------------------// Page Views //---------------------------*/
-function showLandingPage() {
-    landingPage.classList.remove('hidden');
-    searchResultsPage.classList.add('hidden');
-    loginPage.classList.add('hidden');
-    userDashboard.classList.add('hidden');
-    userSearchResultsPage.add('hidden');
-}
-
-function showSearchResultsPage() {
-    landingPage.classList.add('hidden');
-    searchResultsPage.classList.remove('hidden');
-    loginPage.classList.add('hidden');
-    userDashboard.classList.add('hidden');
-    userSearchResultsPage.add('hidden');
-}
-
-function showLoginPage() {
-    landingPage.classList.add('hidden');
-    searchResultsPage.classList.add('hidden');
-    loginPage.classList.remove('hidden');
-    userDashboard.classList.add('hidden');
-    userSearchResultsPage.add('hidden');
-}
-
-function showUserDashboard() {
-    landingPage.classList.add('hidden');
-    searchResultsPage.classList.add('hidden');
-    loginPage.classList.add('hidden');
-    userDashboard.classList.remove('hidden');
-    userSearchResultsPage.add('hidden');
-}
-
-function showUserSearchResultsPage() {
-    landingPage.classList.add('hidden');
-    searchResultsPage.classList.add('hidden');
-    loginPage.classList.add('hidden');
-    userDashboard.classList.add('hidden');
-    userSearchResultsPage.remove('hidden');
-}
+// console.log(filterByDate)
+filterByDate.addEventListener('change', event => {
+    // console.log('TRIGGERED', event.target.value)
+})

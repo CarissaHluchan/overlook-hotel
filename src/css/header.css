@@ -8,7 +8,7 @@ nav {
     /* border: 2px solid blue; */
   }
   
-  .go-to-laning-page-button,
+  .go-to-landing-page-button,
   .go-to-user-dashboard-button {
     height: 3vh;
     width: clamp(250px, 40vw, 600px);
@@ -33,7 +33,8 @@ nav {
     /* border: 2px solid orange; */
   }
   
-  .login {
+  .login,
+  .sign-out {
     margin-right: 2vw;
   }
   
