@@ -13,11 +13,24 @@ import './images/overlook.png'
 import './images/delete.png'
 
 /*---// domUpdates //---*/
-import './domUpdates.js'
+import {
+    showLandingPage,
+    showLoginPage,
+    showUserDashboard,
+    showUserSearchResultsPage
+} from './domUpdates.js'
 
 /*---// CORE Functions //---*/
-import './users.js'
-import './rooms.js'
+import {
+    getRoomsByDate,
+    getRoomsByType
+} from './rooms.js'
+
+import {
+    getUsersBookings,
+    getUsersPastAndFutureBookings,
+    getTotalCost 
+} from './users.js'
 
 /*---// fetchAPI //---*/
 import {
@@ -61,6 +74,11 @@ const deleteThisBookingButton = document.querySelector('.detele-room-booking');
 const filterByDate = document.querySelector('.filter-by-date');
 const filterByRoomType = document.querySelector('.filter-by-room-type');
 
+/*----// Room card //----*/
+const roomResponse = document.querySelector('.room-response')
+const roomInfo = document.querySelector('.room-info')
+const roomCost = document.querySelector('.room-cost')
+
 /**-------------------// Event Listeners //---------------------------*/
 window.addEventListener('load', start);
 
@@ -70,7 +88,7 @@ goToUsersDashboardButton.addEventListener('click', showUserDashboard);
 loginButton.addEventListener('click', showLoginPage);
 signOutButton.addEventListener('click', showLandingPage);
 
-landingPageSearchButton.addEventListener('click', getLandingPageSearchResults);
+landingPageSearchButton.addEventListener('click', getLandingPageRoomsSearchResults);
 userRoomSeachButton.addEventListener('click', showUserSearchResultsPage);
 
 bookThisRoomButton.addEventListener('click', addRoomToBookings);
@@ -84,11 +102,12 @@ filterByDate.addEventListener('change', event => {
 /**------------------// DOM functions //------------------------------*/
 
 function start() {
-    getLandingPageAllRooms()
+    showLandingPage()
+    getLandingPageRoomCards()
 }
 
-function getLandingPageAllRooms() {
-    fetchRooms()
+function getLandingPageRoomCards() {
+    // fetchRooms()
 }
 
-function getLandingPageSearchResults() {}
+function getLandingPageRoomsSearchResults() {}

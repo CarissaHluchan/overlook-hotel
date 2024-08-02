@@ -1,36 +1,47 @@
 const landingPage = document.querySelector('.landing-page');
-const searchResultsPage = document.querySelector('.search-results-page');
 const loginPage = document.querySelector('.login-page');
 const userDashboard = document.querySelector('.user-dashboard');
 const userSearchResultsPage = document.querySelector('.user-search-results-page');
 
-const bookThisRoomButton = document.querySelector('.book-room-button');
-const deleteThisBookingButton = document.querySelector('.detele-room-booking');
+// const bookThisRoomButton = document.querySelector('.book-room-button');
+// const deleteThisBookingButton = document.querySelector('.detele-room-booking');
 
-function showLandingPage() {
-    landingPage.classList.remove('hidden');
-    loginPage.classList.add('hidden');
-    userDashboard.classList.add('hidden');
-    userSearchResultsPage.add('hidden');
+export function showLandingPage() {
+    unhideElement(landingPage);
+    hideElement(loginPage);
+    hideElement(userDashboard);
+    hideElement(userSearchResultsPage);
 }
 
-function showLoginPage() {
-    landingPage.classList.add('hidden');
-    loginPage.classList.remove('hidden');
-    userDashboard.classList.add('hidden');
-    userSearchResultsPage.add('hidden');
+export function showLoginPage() {
+    hideElement(landingPage);
+    unhideElement(loginPage);
+    hideElement(userDashboard);
+    hideElement(userSearchResultsPage);
 }
 
-function showUserDashboard() {
-    landingPage.classList.add('hidden');
-    loginPage.classList.add('hidden');
-    userDashboard.classList.remove('hidden');
-    userSearchResultsPage.add('hidden');
+export function showUserDashboard() {
+    hideElement(landingPage);
+    hideElement(loginPage);
+    unhideElement(userDashboard);
+    hideElement(userSearchResultsPage);
 }
 
-function showUserSearchResultsPage() {
-    landingPage.classList.add('hidden');
-    loginPage.classList.add('hidden');
-    userDashboard.classList.add('hidden');
-    userSearchResultsPage.remove('hidden');
+export function showUserSearchResultsPage() {
+    hideElement(landingPage);
+    hideElement(loginPage);
+    hideElement(userDashboard);
+    unhideElement(userSearchResultsPage);
 }
+
+export function hideElement(element) {
+    element.classList.add('hidden')
+    element.ariaHidden = 'true';
+    element.disabled = 'true';
+}
+export function unhideElement(element) {
+    element.classList.remove('hidden')
+    element.ariaHidden = 'flase';
+    element.removeAttribute('disabled');
+}
+
