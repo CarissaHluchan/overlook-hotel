@@ -62,7 +62,7 @@ describe('List of available rooms by date', () => {
         expect(results).to.deep.equal(expected);
     });
 
-    it('Should return a list of rooms avaialbe on a different given date ', () => {
+    it('Should return a list of rooms available on a different given date', () => {
         let date = "2022/04/22";
 
         let bookings = bookingsSampleData;
@@ -115,6 +115,16 @@ describe('List of available rooms by date', () => {
         let results = getRoomsByDate(date, bookings, rooms);
 
         expect(results).to.deep.equal(expected);
+    });
+
+    it ('Should return an error message if an invalue date is entered', () => {
+        let date = 'dog';
+
+        let bookings = bookingsSampleData;
+
+        let rooms = roomsSampleData;
+
+        expect(() => getRoomsByDate(date, bookings, rooms)).to.throw('Please enter a valid date.');
     });
 });
 
