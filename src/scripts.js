@@ -19,6 +19,15 @@ import './domUpdates.js'
 import './users.js'
 import './rooms.js'
 
+/*---// fetchAPI //---*/
+import {
+    fetchRooms,
+    fetchBookings,
+    fetchUsers,
+    addRoomToBookings,
+    deleteRoomFromBookings
+} from './fetchAPI.js'
+
 /**-----------------// Global Varibles //--------------------------*/
 // var user = {};
 // var allBookings = [...bookings];
@@ -53,10 +62,33 @@ const filterByDate = document.querySelector('.filter-by-date');
 const filterByRoomType = document.querySelector('.filter-by-room-type');
 
 /**-------------------// Event Listeners //---------------------------*/
+window.addEventListener('load', start);
 
+goToLandingPageButton.addEventListener('click', showLandingPage);
+goToUsersDashboardButton.addEventListener('click', showUserDashboard);
 
+loginButton.addEventListener('click', showLoginPage);
+signOutButton.addEventListener('click', showLandingPage);
+
+landingPageSearchButton.addEventListener('click', getLandingPageSearchResults);
+userRoomSeachButton.addEventListener('click', showUserSearchResultsPage);
+
+bookThisRoomButton.addEventListener('click', addRoomToBookings);
+deleteThisBookingButton.addEventListener('click', deleteRoomFromBookings);
 
 // console.log(filterByDate)
 filterByDate.addEventListener('change', event => {
     // console.log('TRIGGERED', event.target.value)
 })
+
+/**------------------// DOM functions //------------------------------*/
+
+function start() {
+    getLandingPageAllRooms()
+}
+
+function getLandingPageAllRooms() {
+    fetchRooms()
+}
+
+function getLandingPageSearchResults() {}
