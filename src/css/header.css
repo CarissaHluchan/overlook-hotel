@@ -8,7 +8,8 @@ nav {
     /* border: 2px solid blue; */
   }
   
-  .logo-name {
+  .go-to-laning-page-button,
+  .go-to-user-dashboard-button {
     height: 3vh;
     width: clamp(250px, 40vw, 600px);
     display: flex;

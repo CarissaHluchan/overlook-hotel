@@ -20,7 +20,7 @@ var user = {};
 var allBookings = [...bookings];
 var allRooms = [...rooms];
 var filteredRooms = [...rooms];
-var roomFilters = { date: /**function call here */, roomType: '', bedSize: '' };
+var roomFilters = { date: '', roomType: '', bedSize: '' };
 
 
 
@@ -33,8 +33,13 @@ const userDashboard = document.querySelector('.user-dashboard');
 const userSearchResultsPage = document.querySelector('.user-search-results-page');
 
 /*----// Buttons //----*/
-const goToLandingPageButton = document.getElementById('goToLandingPageButton');
-const goToUsersDashboardButton = document.getElementById('gotToUserDashboardButton');
+/** Name and Logo */
+const goToLandingPageButton = document.querySelector('go-to-laning-page-button');
+const goToUsersDashboardButton = document.querySelector('.go-to-user-dashboard-button');
+/* Login */
+/* Search */
+const landingPageSearchButton = document.querySelector('landing-page-search-button');
+const userRoomSeachButton = document.querySelector('user-room-search-button');
 
 
 
