@@ -3,33 +3,36 @@ const { roomsSampleData } = require('./data-sample/rooms-sample');
 
 export const getUsersBookings = (userID = [], bookings) => {
     const usersBookings = bookings.filter(booking => booking.userID === userID);
-    return usersBookings
+    return usersBookings;
 }
 
 export const getUsersPastAndFutureBookings = (usersBookings) => {
-    const now = new Date().valueOf();
+    const now = new Date().getTime();
     const pastAndFutureBookings = usersBookings.reduce((acc, booking) => {
-        const bookingValue = new Date(booking.date).valueOf();
+        const bookingValue = new Date(booking.date).getTime();
         if (bookingValue < now) {
-            acc.past.push(booking)
+            acc.past.push(booking);
         } else {
-            acc.upcoming.push(booking)
+            acc.upcoming.push(booking);
         }
-        return acc
+        return acc;
     }, { past: [], upcoming: [] });
     return pastAndFutureBookings;
 }
 
 export const getTotalCost = (usersBookings, rooms) => {
-    const usersRooms = usersBookings.map(booking => booking.roomNumber)
-    const roomCosts = rooms.filter(room => {
+    const usersRooms = usersBookings.map(booking => booking.roomNumber);
+
+    const roomWithThisRoomNumber = rooms.filter(room => {
         if (usersRooms.includes(room.number)) {
-            return room
+            return room;
         }
-    })
-    const totalCost = roomCosts.reduce((acc, room) => {
-        acc += room.costPerNight
-        return acc
-    }, 0)
-    return totalCost
+    });
+
+    const totalCost = roomWithThisRoomNumber.reduce((acc, room) => {
+        acc += room.costPerNight;
+        return acc;
+    }, 0);
+
+    return totalCost;
 }

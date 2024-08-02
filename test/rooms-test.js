@@ -131,7 +131,6 @@ describe('List of available rooms by date', () => {
 describe('List of availabe rooms by type', () => {
     it('Should return a list of rooms based on a room type', () => {
         let typeOf = "residential suite";
-
         let rooms = roomsSampleData;
 
         let expected = [
@@ -168,7 +167,6 @@ describe('List of availabe rooms by type', () => {
 
     it('Should return a list of rooms based on a different room type', () => {
         let typeOf = "single room";
-
         let rooms = roomsSampleData;
 
         let expected = [
@@ -197,7 +195,6 @@ describe('List of availabe rooms by type', () => {
 
     it('Should return an empty array if the room type is not found', () => {
         let typeOf = "double room";
-
         let rooms = roomsSampleData;
 
         let expected = [];
