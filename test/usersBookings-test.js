@@ -91,7 +91,7 @@ describe('Lists of users past and future bookings', () => {
                     roomNumber: 24
                 },
             ]
-        }
+        };
 
         let results = getUsersPastAndFutureBookings(usersBookings)
 

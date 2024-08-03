@@ -19,7 +19,10 @@ import {
     showUserDashboard,
     showUserSearchResultsPage,
     showLandingPageRoomCards,
-    setRoomsAvailabeOnDateHeader
+    setRoomsAvailabeOnDateHeader,
+    updateLoggedInUsersNameHeader,
+    displayUsersPastAndFutureBookings,
+    removeBookingCard,
 } from './domUpdates.js'
 
 /*---// CORE Functions //---*/
@@ -35,7 +38,7 @@ import {
     getTotalCost
 } from './usersBookings.js'
 
-import {} from './users.js'
+import { validateLoginCredentials } from './users.js'
 
 /*---// fetchAPI //---*/
 import {
@@ -47,10 +50,11 @@ import {
 } from './fetchAPI.js'
 
 /**-----------------// Global Varibles //--------------------------*/
-// var user = {};
+var loggedInUser = null;
 var allBookings = [];
 var allRooms = [];
 var filteredRooms = [];
+var loggedInUsersBookings = [];
 // var allBookings = [...bookings];
 // var allRooms = [...rooms];
 // var filteredRooms = [...rooms];
@@ -79,7 +83,6 @@ const landingPageSearchButton = document.querySelector('.landing-page-search-but
 const userRoomSeachButton = document.querySelector('.user-room-search-button');
 /* Booking */
 const bookThisRoomButton = document.querySelector('.book-room-button');
-const deleteThisBookingButton = document.querySelector('.detele-room-booking');
 
 /*----// Filters //----*/
 const filterByDate = document.querySelector('.filter-by-date');
@@ -103,7 +106,6 @@ signOutButton.addEventListener('click', showLandingPage);
 userRoomSeachButton.addEventListener('click', showUserSearchResultsPage);
 
 bookThisRoomButton.addEventListener('click', addRoomToBookings);
-deleteThisBookingButton.addEventListener('click', deleteRoomFromBookings);
 
 landingPageSearchButton.addEventListener('click', (event) => {
     const filterByDateValue = filterByDate.value.replaceAll('-', '/').trim();
@@ -118,12 +120,48 @@ landingPageSearchButton.addEventListener('click', (event) => {
 signInButton.addEventListener('click', (event) => {
     const username = usernameInput.value;
     const password = passwordInput.value;
-    showUserDashboard();
-    console.log({
-        username,
-        password,
-    });
+    const userID = validateLoginCredentials(username, password);
+    if (!userID) {
+        alert('Please enter a vaild username and password.');
+    }
+    fetchUsers()
+        .then(customers => {
+            loggedInUser = customers.find(user => userID === user.id);
+            if (!loggedInUser) {
+                alert('Please enter a vaild username and password.');
+            } else {
+                updateLoggedInUsersNameHeader(loggedInUser.name);
+                const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
+                displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
+                addEventListenersToDeleteButtons();
+                showUserDashboard();
+            }
+        })
+        .catch(error => {
+            console.log({ error });
+            alert('There is a error, please try again later.');
+        });
 });
+
+function addEventListenersToDeleteButtons() {
+    const deleteButtons = document.querySelectorAll('.detele-room-booking');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const bookingId = event.target.getAttribute('booking-id');
+            allBookings = allBookings.filter(booking => booking.id !== bookingId);
+            removeBookingCard(bookingId);
+        });
+    });
+
+}
+
+// const deleteThisBookingButton = document.querySelectorAll('.detele-room-booking');
+// console.log({
+//     deleteThisBookingButton,
+// });
+// deleteThisBookingButton.addEventListener('click', (event) => {
+//     console.log('DELETE WAS CLICKED');
+// });
 
 /**------------------// DOM functions //------------------------------*/
 

@@ -15,8 +15,7 @@ export function fetchBookings() {
 export function fetchUsers() {
     return fetch('http://localhost:3001/api/v1/customers')
         .then(response => response.json())
-        .then(data => data.customers)
-        .catch(error => console.log(error))
+        .then(data => data.customers);
 }
 
 export function addRoomToBookings(booking) {

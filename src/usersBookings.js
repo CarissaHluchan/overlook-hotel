@@ -1,13 +1,16 @@
 const { bookingsSampleData } = require('./data-sample/bookings-sample');
 const { roomsSampleData } = require('./data-sample/rooms-sample');
 
+// const nowTime = () => new Date().getTime();
+const nowTime = () => new Date('2022-02-08').getTime();
+
 export const getUsersBookings = (userID = [], bookings) => {
     const usersBookings = bookings.filter(booking => booking.userID === userID);
     return usersBookings;
 }
 
 export const getUsersPastAndFutureBookings = (usersBookings) => {
-    const now = new Date().getTime();
+    const now = nowTime();
     const pastAndFutureBookings = usersBookings.reduce((acc, booking) => {
         const bookingValue = new Date(booking.date).getTime();
         if (bookingValue < now) {
