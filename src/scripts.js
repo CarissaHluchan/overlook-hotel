@@ -17,20 +17,25 @@ import {
     showLandingPage,
     showLoginPage,
     showUserDashboard,
-    showUserSearchResultsPage
+    showUserSearchResultsPage,
+    showLandingPageRoomCards,
+    setRoomsAvailabeOnDateHeader
 } from './domUpdates.js'
 
 /*---// CORE Functions //---*/
 import {
     getRoomsByDate,
-    getRoomsByType
+    getRoomsByType,
+    filterRoomsByDateAndType
 } from './rooms.js'
 
 import {
     getUsersBookings,
     getUsersPastAndFutureBookings,
-    getTotalCost 
-} from './users.js'
+    getTotalCost
+} from './usersBookings.js'
+
+import {} from './users.js'
 
 /*---// fetchAPI //---*/
 import {
@@ -43,6 +48,9 @@ import {
 
 /**-----------------// Global Varibles //--------------------------*/
 // var user = {};
+var allBookings = [];
+var allRooms = [];
+var filteredRooms = [];
 // var allBookings = [...bookings];
 // var allRooms = [...rooms];
 // var filteredRooms = [...rooms];
@@ -58,11 +66,14 @@ const userSearchResultsPage = document.querySelector('.user-search-results-page'
 
 /*----// Buttons //----*/
 /** Name and Logo */
-const goToLandingPageButton = document.querySelector('.go-to-laning-page-button');
+const goToLandingPageButton = document.querySelector('.go-to-landing-page-button');
 const goToUsersDashboardButton = document.querySelector('.go-to-user-dashboard-button');
 /* Login */
 const loginButton = document.querySelector('.login');
 const signOutButton = document.querySelector('.sign-out');
+const signInButton = document.getElementById('signInButton');
+const usernameInput = document.getElementById('username');
+const passwordInput = document.getElementById('password');
 /* Search */
 const landingPageSearchButton = document.querySelector('.landing-page-search-button');
 const userRoomSeachButton = document.querySelector('.user-room-search-button');
@@ -88,26 +99,50 @@ goToUsersDashboardButton.addEventListener('click', showUserDashboard);
 loginButton.addEventListener('click', showLoginPage);
 signOutButton.addEventListener('click', showLandingPage);
 
-landingPageSearchButton.addEventListener('click', getLandingPageRoomsSearchResults);
+// landingPageSearchButton.addEventListener('click', getLandingPageRoomsSearchResults);
 userRoomSeachButton.addEventListener('click', showUserSearchResultsPage);
 
 bookThisRoomButton.addEventListener('click', addRoomToBookings);
 deleteThisBookingButton.addEventListener('click', deleteRoomFromBookings);
 
-// console.log(filterByDate)
-filterByDate.addEventListener('change', event => {
-    // console.log('TRIGGERED', event.target.value)
-})
+landingPageSearchButton.addEventListener('click', (event) => {
+    const filterByDateValue = filterByDate.value.replaceAll('-', '/').trim();
+    const filterByRoomTypeValue = filterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
+    const roomsFilteredByDateAndType =
+        filterRoomsByDateAndType(filterByDateValue, filterByRoomTypeValue, allRooms, allBookings);
+
+    setRoomsAvailabeOnDateHeader(filterByDate.value);
+    showLandingPageRoomCards(roomsFilteredByDateAndType);
+});
+
+signInButton.addEventListener('click', (event) => {
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+    showUserDashboard();
+    console.log({
+        username,
+        password,
+    });
+});
 
 /**------------------// DOM functions //------------------------------*/
 
 function start() {
-    showLandingPage()
-    getLandingPageRoomCards()
+    Promise.all([
+        fetchRooms(),
+        fetchBookings()]
+    )
+        .then(data => updateGlobalVariables(...data))
+        .catch(err => console.log(err))
+
+    showLandingPage();
 }
 
-function getLandingPageRoomCards() {
-    // fetchRooms()
+function updateGlobalVariables(rooms, bookings) {
+    // console.log('ROOMS:', rooms.rooms)
+    allRooms = rooms
+    // console.log('BOOKINGS:', bookings)
+    allBookings = bookings
+    showLandingPageRoomCards(allRooms);
 }
 
-function getLandingPageRoomsSearchResults() {}

@@ -1,26 +1,26 @@
 export function fetchRooms() {
-    fetch('http://localhost:3001/api/v1/rooms')
+   return fetch('http://localhost:3001/api/v1/rooms')
         .then(response => response.json())
-        .then(data => console.log(data))
+        .then(data => data.rooms)
         .catch(error => console.log(error))
 }
 
 export function fetchBookings() {
-    fetch('http://localhost:3001/api/v1/bookings')
+    return fetch('http://localhost:3001/api/v1/bookings')
         .then(response => response.json())
-        .then(data => data)
+        .then(data => data.bookings)
         .catch(error => console.log(error))
 }
 
 export function fetchUsers() {
-    fetch('http://localhost:3001/api/v1/customers')
+    return fetch('http://localhost:3001/api/v1/customers')
         .then(response => response.json())
-        .then(data => data)
+        .then(data => data.customers)
         .catch(error => console.log(error))
 }
 
 export function addRoomToBookings(booking) {
-    fetch('http://localhost:3001/api/v1/bookings', {
+   return fetch('http://localhost:3001/api/v1/bookings', {
         method: 'POST',
         body: JSON.stringify(booking),
     })
@@ -50,7 +50,7 @@ export function addRoomToBookings(booking) {
 // }
 
 export const deleteRoomFromBookings = () => {
-    fetch(`http://localhost:3001/api/v1/bookings/${booking.id}`/* where<id> will be a number of a booking’s id*/, {
+   return fetch(`http://localhost:3001/api/v1/bookings/${booking.id}`/* where<id> will be a number of a booking’s id*/, {
         method: 'POST',
     })
         .then(response => response.json())

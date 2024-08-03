@@ -7,13 +7,31 @@ export const getRoomsByDate = (date, bookings, rooms) => {
         throw 'Please enter a valid date.';
     }
 
-    const bookingByDate = bookings.filter(booking => booking.date === date);
+    const bookingByDate = bookings.filter(booking => new Date(booking.date).getTime() === new Date(date).getTime());
     const bookedRooms = bookingByDate.map(booking => booking.roomNumber);
     const availableRooms = rooms.filter(room => !bookedRooms.includes(room.number));
     return availableRooms;
 }
 
-export const getRoomsByType = (typeOf = [], rooms) => {
+export const getRoomsByType = (typeOf, rooms) => {
     const roomTypes = rooms.filter(room => room.roomType === typeOf);
     return roomTypes
+}
+
+export const filterRoomsByDateAndType = (date, typeOf, rooms, bookings) => {
+    if (date === '' && typeOf === '') {
+        return rooms;
+    }
+
+    if (date === '') {
+        return getRoomsByType(typeOf, rooms);
+    }
+
+    const roomsFilteredByDate = getRoomsByDate(date, bookings, rooms);
+
+    if (typeOf === '') {
+        return roomsFilteredByDate;
+    } else {
+        return getRoomsByType(typeOf, roomsFilteredByDate);
+    }
 }

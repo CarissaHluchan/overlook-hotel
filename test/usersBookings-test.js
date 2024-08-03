@@ -5,7 +5,7 @@ const {
     getUsersBookings,
     getUsersPastAndFutureBookings,
     getTotalCost,
-} = require('../src/users.js');
+} = require('../src/usersBookings.js');
 
 const { bookingsSampleData } = require('../src/data-sample/bookings-sample.js');
 const { roomsSampleData } = require('../src/data-sample/rooms-sample.js');
