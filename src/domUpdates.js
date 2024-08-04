@@ -16,6 +16,7 @@ const usersPastBookings = document.querySelector('.user-bookings-section');
 const usersFutureBookings = document.querySelector('.future-bookings-section');
 const usersPastBookingsTotalCost = document.querySelector('.total-cost.past span');
 const usersFutureBookingsTotalCost = document.querySelector('.total-cost.upcoming span');
+const roomsAvailabeOnDateUserSearchHeader = document.getElementById('userSearchDates');
 
 /**--------------------// Page Views //----------------------------*/
 export function showLandingPage() {
@@ -41,7 +42,7 @@ export function showUserDashboard() {
 export function showUserSearchResultsPage() {
     hideElement(landingPage);
     hideElement(loginPage);
-    hideElement(userDashboard);
+    unhideElement(userDashboard);
     hideElement(usersPastBookingsWithHeader);
     unhideElement(usersRoomSearchResultsWithHeader);
 }
@@ -175,4 +176,41 @@ export function showUsersPastBookingsTotalCost(totalCost) {
 
 export function showUsersFutureBookingsTotalCost(totalCost) {
     usersFutureBookingsTotalCost.innerHTML = totalCost;
+}
+
+export function setRoomsAvailabeOnDateUserSearchHeader(dateString) {
+    roomsAvailabeOnDateUserSearchHeader.innerHTML = dateString;
+}
+
+export function createUserSearchRoomCard(room) {
+    // room.number
+    return `<article class="booking-card">
+              <div class="room-details">
+                <div class="room-info">
+                  <p>Room type:</p>
+                  <p>Bed size:</p>
+                  <p>Number of Beds:</p>
+                  <p>Bidet:</p>
+                  <p>Room number:</p>
+                </div>
+                <div class="room-cost">
+                  <p>Cost per night:</p>
+                </div>
+              </div>
+              <div class="room-response">
+                <div class="room-info response">
+                  <p>residential suite</p>
+                  <p>queen</p>
+                  <p>1</p>
+                  <p>True</p>
+                  <p>1</p>
+                </div>
+                <div class="room-cost response">
+                  <p>$358.4</p>
+                </div>
+              </div>
+              <form class="booking-options">
+                <button type="button" class="book-room-button">Book this Room</button>
+              </form>
+            </article>`
 }

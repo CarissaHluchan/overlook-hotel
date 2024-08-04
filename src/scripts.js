@@ -25,6 +25,8 @@ import {
     removeBookingCard,
     showUsersPastBookingsTotalCost,
     showUsersFutureBookingsTotalCost,
+    setRoomsAvailabeOnDateUserSearchHeader,
+    createUserSearchRoomCard
 } from './domUpdates.js'
 
 /*---// CORE Functions //---*/
@@ -65,7 +67,7 @@ const landingPage = document.querySelector('.landing-page');
 const loginPage = document.querySelector('.login-page');
 const userDashboard = document.querySelector('.user-dashboard');
 const usersPastBookingsWithHeader = document.querySelector('.user-rooms.past');
-const usersRoomSearchResultsWithHeader = document.querySelector('.user-rooms.search'); 
+const usersRoomSearchResultsWithHeader = document.querySelector('.user-rooms.search');
 
 /*----// Buttons //----*/
 /** Name and Logo */
@@ -84,8 +86,12 @@ const userRoomSeachButton = document.querySelector('.user-room-search-button');
 const bookThisRoomButton = document.querySelector('.book-room-button');
 
 /*----// Filters //----*/
-const filterByDate = document.querySelector('.filter-by-date');
-const filterByRoomType = document.querySelector('.filter-by-room-type');
+const landingPageFilterByDate = document.querySelector('.landing-page .filter-by-date');
+const landingPageFilterByRoomType = document.querySelector('.landing-page .filter-by-room-type');
+
+const userSearchFilterByDate = document.querySelector('.user-dashboard .filter-by-date');
+const userSearchFilterByRoomType = document.querySelector('.user-dashboard .filter-by-room-type');
+
 
 /*----// Room card //----*/
 const roomResponse = document.querySelector('.room-response');
@@ -101,17 +107,31 @@ goToUsersDashboardButton.addEventListener('click', showUserDashboard);
 loginButton.addEventListener('click', showLoginPage);
 signOutButton.addEventListener('click', showLandingPage);
 
-userRoomSeachButton.addEventListener('click', showUserSearchResultsPage);
+userRoomSeachButton.addEventListener('click', (event) => {
+    const userSearchFilterByDateValue = userSearchFilterByDate.value.replaceAll('-', '/').trim();
+    const userSearchFilterByRoomTypeValue = userSearchFilterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
+    console.log({
+        userSearchFilterByDate,
+        userSearchFilterByRoomType,
+        userSearchFilterByDateValue,
+        userSearchFilterByRoomTypeValue,
+    });
+    const roomsFilteredByDateAndType =
+        filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
 
-bookThisRoomButton.addEventListener('click', addRoomToBookings);
+    setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
+    createUserSearchRoomCard(roomsFilteredByDateAndType);
+    showUserSearchResultsPage();
+});
+
 
 landingPageSearchButton.addEventListener('click', (event) => {
-    const filterByDateValue = filterByDate.value.replaceAll('-', '/').trim();
-    const filterByRoomTypeValue = filterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
+    const landingPageFilterByDateValue = landingPageFilterByDate.value.replaceAll('-', '/').trim();
+    const landingPageFilterByRoomTypeValue = landingPageFilterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
     const roomsFilteredByDateAndType =
-        filterRoomsByDateAndType(filterByDateValue, filterByRoomTypeValue, allRooms, allBookings);
+        filterRoomsByDateAndType(landingPageFilterByDateValue, landingPageFilterByRoomTypeValue, allRooms, allBookings);
 
-    setRoomsAvailabeOnDateHeader(filterByDate.value);
+    setRoomsAvailabeOnDateHeader(landingPageFilterByDate.value);
     showLandingPageRoomCards(roomsFilteredByDateAndType);
 });
 
@@ -149,6 +169,7 @@ function addEventListenersToDeleteButtons() {
 
 }
 
+bookThisRoomButton.addEventListener('click', addRoomToBookings);
 /**------------------// DOM functions //------------------------------*/
 
 function start() {
