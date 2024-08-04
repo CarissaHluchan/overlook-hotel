@@ -23,7 +23,7 @@ export function addRoomToBookings(booking) {
         method: 'POST',
         body: JSON.stringify({ // should this live on the event?
             "userID": 48, // how do I get the user ID? validateLoginCredentials?
-            "date": "2019/09/23", // Input on search bar
+            "date": "2019/09/23", // Input on search bar...meaning: should this live on the event handeler
             "roomNumber": 4 // from the room card selected
             // will this generate an ID for the booking? Can I console.log this?
         }),

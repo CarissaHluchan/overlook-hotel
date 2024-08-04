@@ -173,7 +173,7 @@ function addEventListenersToBookThisRoomButton() {
     bookThisRoomButton.forEach(button => {
         button.addEventListener('click', (event) => {
             // POST fetch request to server. // Do I write the POST request here?
-            // display booking in upcoming bookings
+            // display booking in upcoming bookings // need the generated booking ID
         });
     });
 }
