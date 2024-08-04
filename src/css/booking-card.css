@@ -55,7 +55,7 @@
 
 .booking-options {
   /* height: clamp(194px, 19vh, 216px); */
-  width: clamp(108px, 19vw, 170px);
+  /* width: clamp(108px, 19vw, 170px); */
   display: flex;
   flex-direction: column;
   align-items: flex-end;

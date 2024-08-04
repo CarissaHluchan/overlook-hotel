@@ -3,8 +3,8 @@
 const landingPage = document.querySelector('.landing-page');
 const loginPage = document.querySelector('.login-page');
 const userDashboard = document.querySelector('.user-dashboard');
-const usersPastBookingsWithHeader = document.querySelector('.user-rooms-search-and-past.past');
-const usersRoomSearchResultsWithHeader = document.querySelector('.user-rooms-search-and-past.search');
+const usersPastBookingsWithHeader = document.querySelector('.user-rooms-past');
+const usersRoomSearchResultsWithHeader = document.querySelector('.user-rooms-search');
 
 /*----// Landing Page //----*/
 const roomsAvailabeOnDateHeader = document.getElementById('searchedDate');
