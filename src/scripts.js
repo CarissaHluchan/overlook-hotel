@@ -82,8 +82,6 @@ const passwordInput = document.getElementById('password');
 /* Search */
 const landingPageSearchButton = document.querySelector('.landing-page-search-button');
 const userRoomSeachButton = document.querySelector('.user-room-search-button');
-/* Booking */
-const bookThisRoomButton = document.querySelector('.book-room-button');
 
 /*----// Filters //----*/
 const landingPageFilterByDate = document.querySelector('.landing-page .filter-by-date');
@@ -164,12 +162,23 @@ function addEventListenersToDeleteButtons() {
             const bookingId = event.target.getAttribute('booking-id');
             allBookings = allBookings.filter(booking => booking.id !== bookingId);
             removeBookingCard(bookingId);
+            // need to add DELETE fetch request. // Do I write that here?
         });
     });
 
 }
 
-bookThisRoomButton.addEventListener('click', addRoomToBookings);
+function addEventListenersToBookThisRoomButton() {
+    const bookThisRoomButton = document.querySelector('.book-room-button');
+    bookThisRoomButton.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // POST fetch request to server. // Do I write the POST request here?
+            // display booking in upcoming bookings
+        });
+    });
+}
+
+// bookThisRoomButton.addEventListener('click', addRoomToBookings);
 /**------------------// DOM functions //------------------------------*/
 
 function start() {
