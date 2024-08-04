@@ -16,7 +16,7 @@ const usersPastBookings = document.querySelector('.user-bookings-section');
 const usersFutureBookings = document.querySelector('.future-bookings-section');
 
 const usersPastBookingsTotalCost = document.querySelector('.total-cost.past span');
-const usersFutureBookingsTotalCost = document.querySelector('.total-cost.upcming span');
+const usersFutureBookingsTotalCost = document.querySelector('.total-cost.upcoming span');
 
 export function showLandingPage() {
     unhideElement(landingPage);

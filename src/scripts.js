@@ -187,6 +187,7 @@ function setupUserDashboard() {
     const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
     displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
     showUsersPastBookingsTotalCost(getTotalCost(pastAndFutureBookings.past, allRooms));
+    showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
     addEventListenersToDeleteButtons();
     showUserDashboard();
 }
