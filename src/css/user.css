@@ -15,7 +15,7 @@
 .user-rooms-past,
 .user-upcoming-bookings {
   height: max(63vh);
-  width: clamp(431px, 48vw, 730px);
+  /* width: clamp(431px, 48vw, 730px); */
   overflow-y: scroll;
   /* border: 3px solid purple; */
 }
@@ -40,13 +40,14 @@ h5,
 }
 
 h5 {
-  width: clamp(177px, 15vw, 225px);
+  /* width: clamp(177px, 15vw, 225px); */
 }
 
 .user-bookings-section,
 .future-bookings-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   /* border: 3px solid blue; */
 }
 
