@@ -13,7 +13,10 @@ const mainSearchResults = document.querySelector('.main-search-results');
 const loggedInUsersNameHeader = document.getElementById('loggedInUsersNameHeader');
 
 const usersPastBookings = document.querySelector('.user-bookings-section');
-const usersFutureBookings = document.querySelector('.future-bookings-section')
+const usersFutureBookings = document.querySelector('.future-bookings-section');
+
+const usersPastBookingsTotalCost = document.querySelector('.total-cost.past span');
+const usersFutureBookingsTotalCost = document.querySelector('.total-cost.upcming span');
 
 export function showLandingPage() {
     unhideElement(landingPage);
@@ -163,4 +166,12 @@ export function displayUsersPastAndFutureBookings(pastAndFutureBookings, rooms) 
 export function removeBookingCard(bookingId) {
     const bookingCardElement = document.querySelector(`.booking-card[booking-id="${bookingId}"]`);
     bookingCardElement.remove();
+}
+
+export function showUsersPastBookingsTotalCost(totalCost) {
+    usersPastBookingsTotalCost.innerHTML = totalCost;
+}
+
+export function showUsersFutureBookingsTotalCost(totalCost) {
+    usersFutureBookingsTotalCost.innerHTML = totalCost;
 }

@@ -23,6 +23,8 @@ import {
     updateLoggedInUsersNameHeader,
     displayUsersPastAndFutureBookings,
     removeBookingCard,
+    showUsersPastBookingsTotalCost,
+    showUsersFutureBookingsTotalCost,
 } from './domUpdates.js'
 
 /*---// CORE Functions //---*/
@@ -130,11 +132,7 @@ signInButton.addEventListener('click', (event) => {
             if (!loggedInUser) {
                 alert('Please enter a vaild username and password.');
             } else {
-                updateLoggedInUsersNameHeader(loggedInUser.name);
-                const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
-                displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
-                addEventListenersToDeleteButtons();
-                showUserDashboard();
+                setupUserDashboard();
             }
         })
         .catch(error => {
@@ -184,3 +182,11 @@ function updateGlobalVariables(rooms, bookings) {
     showLandingPageRoomCards(allRooms);
 }
 
+function setupUserDashboard() {
+    updateLoggedInUsersNameHeader(loggedInUser.name);
+    const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
+    displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
+    showUsersPastBookingsTotalCost(getTotalCost(pastAndFutureBookings.past, allRooms));
+    addEventListenersToDeleteButtons();
+    showUserDashboard();
+}
