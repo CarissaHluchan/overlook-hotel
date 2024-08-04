@@ -1,51 +1,52 @@
+/**--------------------// DOM Nodes //----------------------------*/
+/*----// Page Views //----*/
 const landingPage = document.querySelector('.landing-page');
 const loginPage = document.querySelector('.login-page');
 const userDashboard = document.querySelector('.user-dashboard');
-const userSearchResultsPage = document.querySelector('.user-search-results-page');
-const roomsAvailabeOnDateHeader = document.getElementById('searchedDate')
+const usersPastBookingsWithHeader = document.querySelector('.user-rooms-search-and-past.past');
+const usersRoomSearchResultsWithHeader = document.querySelector('.user-rooms-search-and-past.search');
 
-// const bookThisRoomButton = document.querySelector('.book-room-button');
-// const deleteThisBookingButton = document.querySelector('.detele-room-booking');
-
-
+/*----// Landing Page //----*/
+const roomsAvailabeOnDateHeader = document.getElementById('searchedDate');
 const mainSearchResults = document.querySelector('.main-search-results');
 
+/*----// userDashboard Page //----*/
 const loggedInUsersNameHeader = document.getElementById('loggedInUsersNameHeader');
-
 const usersPastBookings = document.querySelector('.user-bookings-section');
 const usersFutureBookings = document.querySelector('.future-bookings-section');
-
 const usersPastBookingsTotalCost = document.querySelector('.total-cost.past span');
 const usersFutureBookingsTotalCost = document.querySelector('.total-cost.upcoming span');
 
+/**--------------------// Page Views //----------------------------*/
 export function showLandingPage() {
     unhideElement(landingPage);
     hideElement(loginPage);
     hideElement(userDashboard);
-    hideElement(userSearchResultsPage);
 }
 
 export function showLoginPage() {
     hideElement(landingPage);
     unhideElement(loginPage);
     hideElement(userDashboard);
-    hideElement(userSearchResultsPage);
 }
 
 export function showUserDashboard() {
     hideElement(landingPage);
     hideElement(loginPage);
     unhideElement(userDashboard);
-    hideElement(userSearchResultsPage);
+    unhideElement(usersPastBookingsWithHeader);
+    hideElement(usersRoomSearchResultsWithHeader);
 }
 
 export function showUserSearchResultsPage() {
     hideElement(landingPage);
     hideElement(loginPage);
     hideElement(userDashboard);
-    unhideElement(userSearchResultsPage);
+    hideElement(usersPastBookingsWithHeader);
+    unhideElement(usersRoomSearchResultsWithHeader);
 }
 
+/**--------------------// Functions //----------------------------*/
 export function hideElement(element) {
     element.classList.add('hidden')
     element.ariaHidden = 'true';

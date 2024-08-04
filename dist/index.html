@@ -60,32 +60,6 @@
         <p class="sign-in-to-book-message">Sign in to book a room</p>
       </section>
       <section class="main-search-results">
-        <article class="booking-card">
-          <div class="room-details">
-            <div class="room-info">
-              <p>Room type:</p>
-              <p>Bed size:</p>
-              <p>Number of Beds:</p>
-              <p>Bidet:</p>
-              <p>Room number:</p>
-            </div>
-            <div class="room-cost">
-              <p>Cost per night:</p>
-            </div>
-          </div>
-          <div class="room-response">
-            <div class="room-info response">
-              <p></p>
-              <p></p>
-              <p></p>
-              <p></p>
-              <p></p>
-            </div>
-            <div class="room-cost response">
-              <p></p>
-            </div>
-          </div>
-        </article>
       </section>
     </main>
     <footer>
@@ -171,7 +145,7 @@
         <h3>Hello <span id="loggedInUsersNameHeader"></span>, these are all your room bookings</h3>
       </section>
       <section class="user-rooms">
-        <div class="user-rooms-search-and-past">
+        <div class="user-rooms-search-and-past past">
           <section class="user-section-header" roll="sectionhaed">
             <h4>Past Bookings:</h4>
             <p class="total-cost past">Total Cost: $<span></span></p>
@@ -204,6 +178,44 @@
                   <p>$358.4</p>
                 </div>
               </div>
+            </article>
+          </section>
+        </div>
+        <div class="user-rooms-search-and-past search">
+          <section class="user-section-header" roll="sectionhaed">
+            <h4>All rooms available:</h4>
+          </section>
+          <section class="user-bookings-section">
+            <article class="booking-card">
+              <div class="room-details">
+                <div class="room-info">
+                  <p>Date:</p>
+                  <p>Room type:</p>
+                  <p>Bed size:</p>
+                  <p>Number of Beds:</p>
+                  <p>Bidet:</p>
+                  <p>Room number:</p>
+                </div>
+                <div class="room-cost">
+                  <p>Cost per night:</p>
+                </div>
+              </div>
+              <div class="room-response">
+                <div class="room-info response">
+                  <p> 12/22/2023</p>
+                  <p>residential suite</p>
+                  <p>queen</p>
+                  <p>1</p>
+                  <p>True</p>
+                  <p>1</p>
+                </div>
+                <div class="room-cost response">
+                  <p>$358.4</p>
+                </div>
+              </div>
+              <form class="booking-options">
+                <button type="button" class="book-room-button">Book this Room</button>
+              </form>
             </article>
           </section>
         </div>
@@ -253,130 +265,44 @@
       <a href="https://github.com/CarissaHluchan/overlook-hotel">See it on Github</a>
     </footer>
   </div>
-  <div class="user-search-results-page">
-    <header>
-      <nav>
-        <div class="go-to-user-dashboard-button">
-          <img src="./images/overlooklogo.png" alt="overlook hotel logo">
-          <h2>Overlook Hotel</h2>
+  <!-- <div class="user-rooms-search-and-past">
+    <section class="user-section-header" roll="sectionhaed">
+      <h4>All rooms available:</h4>
+    </section>
+    <section class="user-bookings-section">
+      <article class="booking-card">
+        <div class="room-details">
+          <div class="room-info">
+            <p>Date:</p>
+            <p>Room type:</p>
+            <p>Bed size:</p>
+            <p>Number of Beds:</p>
+            <p>Bidet:</p>
+            <p>Room number:</p>
+          </div>
+          <div class="room-cost">
+            <p>Cost per night:</p>
+          </div>
         </div>
-        <button class="sign-out">Sign Out</button>
-      </nav>
-      <div class="overlook-picture">
-        <div class="title-message">
-          <p class="welcome-to">Welcome to the</p>
-          <h1 class="title">Overlook Hotel</h1>
+        <div class="room-response">
+          <div class="room-info response">
+            <p> 12/22/2023</p>
+            <p>residential suite</p>
+            <p>queen</p>
+            <p>1</p>
+            <p>True</p>
+            <p>1</p>
+          </div>
+          <div class="room-cost response">
+            <p>$358.4</p>
+          </div>
         </div>
-        <form class="search-room-form">
-          <p class="search-book-your-stay">Book Your Stay</p>
-          <search>
-            <label class="filter-label" for="start"> Enter the Date:</label>
-            <input class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01"
-              max="2030-12-31">
-          </search>
-          <search>
-            <label class="filter-label">Filter by Room Type:</label>
-            <select name="room type" class="filter-by-room-type">
-              <option value="">--select room type--</option>
-              <option value="residential-suite">Residential Suite</option>
-              <option value="junior-suite">Junior Suite</option>
-              <option value="suite">Suite</option>
-              <option value="single-room">Single Room</option>
-            </select>
-          </search>
-          <button type="button" class="user-room-search-button">Search</button>
+        <form class="booking-options">
+          <button type="button" class="book-room-button">Book this Room</button>
         </form>
-    </header>
-    <main>
-      <section class="section-header" roll="sectionhaed">
-        <h3>Hello ${user}, these are you search results</h3>
-      </section>
-      <section class="user-rooms">
-        <div class="user-rooms-search-and-past">
-          <section class="user-section-header" roll="sectionhaed">
-            <h4>All rooms available:</h4>
-          </section>
-          <section class="user-bookings-section">
-            <article class="booking-card">
-              <div class="room-details">
-                <div class="room-info">
-                  <p>Date:</p>
-                  <p>Room type:</p>
-                  <p>Bed size:</p>
-                  <p>Number of Beds:</p>
-                  <p>Bidet:</p>
-                  <p>Room number:</p>
-                </div>
-                <div class="room-cost">
-                  <p>Cost per night:</p>
-                </div>
-              </div>
-              <div class="room-response">
-                <div class="room-info response">
-                  <p> 12/22/2023</p>
-                  <p>residential suite</p>
-                  <p>queen</p>
-                  <p>1</p>
-                  <p>True</p>
-                  <p>1</p>
-                </div>
-                <div class="room-cost response">
-                  <p>$358.4</p>
-                </div>
-              </div>
-              <form class="booking-options">
-                <button type="button" class="book-room-button">Book this Room</button>
-              </form>
-            </article>
-          </section>
-        </div>
-        <div class="user-upcoming-bookings">
-          <section class="user-section-header" roll="sectionhaed">
-            <h5>Upcoming Bookings:</h5>
-            <p class="total-cost">Total Cost $5,400</p>
-          </section>
-          <section class="future-bookings-section">
-            <article class="booking-card">
-              <div class="room-details">
-                <div class="room-info">
-                  <p>Date:</p>
-                  <p>Room type:</p>
-                  <p>Bed size:</p>
-                  <p>Number of Beds:</p>
-                  <p>Bidet:</p>
-                  <p>Room number:</p>
-                </div>
-                <div class="room-cost">
-                  <p>Cost per night:</p>
-                </div>
-              </div>
-              <div class="room-response">
-                <div class="room-info response">
-                  <p> 12/22/2023</p>
-                  <p>residential suite</p>
-                  <p>queen</p>
-                  <p>1</p>
-                  <p>True</p>
-                  <p>1</p>
-                </div>
-                <div class="room-cost response">
-                  <p>$358.4</p>
-                </div>
-              </div>
-              <form class="booking-options">
-                <img type="button" class="detele-room-booking" src="./images/delete.png" alt="detele room from booking">
-              </form>
-            </article>
-          </section>
-        </div>
-      </section>
-    </main>
-    <footer>
-      <p>Created By: Carissa Hluchan</p>
-      <a href="https://github.com/CarissaHluchan/overlook-hotel">See it on Github</a>
-    </footer>
-  </div>
-
+      </article>
+    </section>
+  </div> -->
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 

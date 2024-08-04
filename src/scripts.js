@@ -57,18 +57,15 @@ var allBookings = [];
 var allRooms = [];
 var filteredRooms = [];
 var loggedInUsersBookings = [];
-// var allBookings = [...bookings];
-// var allRooms = [...rooms];
-// var filteredRooms = [...rooms];
-var roomFilters = { date: '', roomType: '', bedSize: '' };
+// var roomFilters = { date: '', roomType: '', bedSize: '' };
 
 /**--------------------// DOM Nodes //----------------------------*/
 /*----// Page Views //----*/
 const landingPage = document.querySelector('.landing-page');
-const searchResultsPage = document.querySelector('.search-results-page');
 const loginPage = document.querySelector('.login-page');
 const userDashboard = document.querySelector('.user-dashboard');
-const userSearchResultsPage = document.querySelector('.user-search-results-page');
+const usersPastBookingsWithHeader = document.querySelector('.user-rooms.past');
+const usersRoomSearchResultsWithHeader = document.querySelector('.user-rooms.search'); 
 
 /*----// Buttons //----*/
 /** Name and Logo */
@@ -91,9 +88,9 @@ const filterByDate = document.querySelector('.filter-by-date');
 const filterByRoomType = document.querySelector('.filter-by-room-type');
 
 /*----// Room card //----*/
-const roomResponse = document.querySelector('.room-response')
-const roomInfo = document.querySelector('.room-info')
-const roomCost = document.querySelector('.room-cost')
+const roomResponse = document.querySelector('.room-response');
+const roomInfo = document.querySelector('.room-info');
+const roomCost = document.querySelector('.room-cost');
 
 /**-------------------// Event Listeners //---------------------------*/
 window.addEventListener('load', start);
@@ -104,7 +101,6 @@ goToUsersDashboardButton.addEventListener('click', showUserDashboard);
 loginButton.addEventListener('click', showLoginPage);
 signOutButton.addEventListener('click', showLandingPage);
 
-// landingPageSearchButton.addEventListener('click', getLandingPageRoomsSearchResults);
 userRoomSeachButton.addEventListener('click', showUserSearchResultsPage);
 
 bookThisRoomButton.addEventListener('click', addRoomToBookings);
@@ -153,14 +149,6 @@ function addEventListenersToDeleteButtons() {
 
 }
 
-// const deleteThisBookingButton = document.querySelectorAll('.detele-room-booking');
-// console.log({
-//     deleteThisBookingButton,
-// });
-// deleteThisBookingButton.addEventListener('click', (event) => {
-//     console.log('DELETE WAS CLICKED');
-// });
-
 /**------------------// DOM functions //------------------------------*/
 
 function start() {
@@ -175,9 +163,7 @@ function start() {
 }
 
 function updateGlobalVariables(rooms, bookings) {
-    // console.log('ROOMS:', rooms.rooms)
     allRooms = rooms
-    // console.log('BOOKINGS:', bookings)
     allBookings = bookings
     showLandingPageRoomCards(allRooms);
 }
