@@ -1,8 +1,8 @@
 const { bookingsSampleData } = require('./data-sample/bookings-sample');
 const { roomsSampleData } = require('./data-sample/rooms-sample');
 
-// const nowTime = () => new Date().getTime();
-const nowTime = () => new Date('2022-02-08').getTime();
+const nowTime = () => new Date().getTime();
+// const nowTime = () => new Date('2022-02-08').getTime();
 
 export const getUsersBookings = (userID = [], bookings) => {
     const usersBookings = bookings.filter(booking => booking.userID === userID);
