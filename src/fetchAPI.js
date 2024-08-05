@@ -1,5 +1,5 @@
 export function fetchRooms() {
-   return fetch('http://localhost:3001/api/v1/rooms')
+    return fetch('http://localhost:3001/api/v1/rooms')
         .then(response => response.json())
         .then(data => data.rooms)
         .catch(error => console.log(error))
@@ -19,9 +19,12 @@ export function fetchUsers() {
 }
 
 export function addRoomToBookings(userId, roomNumber, date) {
-   return fetch('http://localhost:3001/api/v1/bookings', {
+    return fetch('http://localhost:3001/api/v1/bookings', {
         method: 'POST',
-        body: JSON.stringify({ 
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
             "userID": userId, // how do I get the user ID? validateLoginCredentials?
             "date": date, // Input on search bar...meaning: should this live on the event handeler
             "roomNumber": roomNumber // from the room card selected
@@ -30,7 +33,7 @@ export function addRoomToBookings(userId, roomNumber, date) {
     })
 
         .then(response => response.json())
-        .then(json => json)
+        .then(json => console.log(json))
         .catch(err => console.log(err));
 
     /**Required Properties for Request: { "userID": 48, "date": "2019/09/23", "roomNumber": 4 }
@@ -54,7 +57,7 @@ export function addRoomToBookings(userId, roomNumber, date) {
 // }
 
 export const deleteRoomFromBookings = () => {
-   return fetch(`http://localhost:3001/api/v1/bookings/${booking.id}`/* where<id> will be a number of a booking’s id*/, {
+    return fetch(`http://localhost:3001/api/v1/bookings/${booking.id}`/* where<id> will be a number of a booking’s id*/, {
         method: 'POST',
     })
         .then(response => response.json())

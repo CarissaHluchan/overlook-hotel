@@ -122,6 +122,7 @@ userRoomSeachButton.addEventListener('click', (event) => {
 
     setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
     showUsersRoomSearchResults(roomsFilteredByDateAndType);
+    addEventListenersToBookThisRoomButton(); 
     showUserSearchResultsPage();
 });
 
@@ -172,10 +173,19 @@ function addEventListenersToDeleteButtons() {
 }
 
 function addEventListenersToBookThisRoomButton() {
-    const bookThisRoomButton = document.querySelector('.book-room-button');
+    const bookThisRoomButton = document.querySelectorAll('.book-room-button');
     bookThisRoomButton.forEach(button => {
         button.addEventListener('click', (event) => {
-            addRoomToBookings(loggedInUser.id, roomNumber, date)
+            const roomNumber = Number(event.target.getAttribute('room-number'));
+            const date = userSearchFilterByDate.value.replaceAll('-', '/').trim();
+            const userId = loggedInUser.id;
+            allRooms = allRooms.find(room => room.number === roomNumber);
+            console.log({
+                userid: loggedInUser.id,
+                roomNumber,
+                date,
+            })
+            addRoomToBookings(userId, roomNumber, date);
             // display booking in upcoming bookings // need the generated booking ID
         });
     });

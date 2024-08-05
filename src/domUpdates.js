@@ -216,7 +216,7 @@ export function createUserSearchRoomCard(room) {
                 </div>
               </div>
               <form class="booking-options">
-                <button type="button" class="book-room-button">Book this Room</button>
+                <button room-number="${room.number}" type="button" class="book-room-button">Book this Room</button>
               </form>
             </article>`;
 }
