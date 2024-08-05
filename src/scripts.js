@@ -153,8 +153,7 @@ signInButton.addEventListener('click', (event) => {
                 setupUserDashboard();
             }
         })
-        .catch(error => {
-            // console.log({ error });
+        .catch(err => {
             alert('There was a error, please try again later.');
         });
 });
@@ -177,7 +176,9 @@ function addEventListenersToDeleteButtons() {
                     removeBookingCard(bookingId);
                     setupUserDashboard()
                 })
-                .catch(err => { console.log('This is the error', err) });
+                .catch(err => { 
+                    alert('There was an error removing your booking, please try again Later.')
+                });
         });
     });
 
@@ -197,25 +198,17 @@ function addEventListenersToBookThisRoomButton() {
             })
             addRoomToBookings(userId, roomNumber, date)
                 .then(json => {
-                    // console.log('NEW BOOKING <><><><', json.newBooking)
                     allBookings.push(json.newBooking)
-                    alert(json.message)
                     updateUsersFutureBookings()
+                    console.log(json.message)
                 })
                 .catch(err => {
-                    alert('There was an error, please try again Later.')
+                    alert('There was an error adding your booking, please try again Later.')
                 });
-            // display booking in upcoming bookings
-            // showUserSearchResultsPage();
         });
     });
 }
 
-// {message: 'Booking with id 1722868170381 successfully posted', newBooking: {…}}
-// message: "Booking with id 1722868170381 successfully posted"
-// newBooking: {date: "2024/08/05", id: "1722868170381", roomNumber: 2, userID: 20 }
-
-// bookThisRoomButton.addEventListener('click', addRoomToBookings);
 /**------------------// DOM functions //------------------------------*/
 
 function start() {
