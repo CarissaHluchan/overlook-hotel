@@ -64,7 +64,7 @@ export function showLandingPageRoomCards(rooms) {
     mainSearchResults.innerHTML = '';
     rooms.forEach(room => mainSearchResults.innerHTML += createLandingPageRoomCard(room))
     if (!rooms.length) {
-      mainSearchResults.innerHTML = 'We are so very sorry!!! There are no rooms available that match your search criteria. Please try again.';
+      mainSearchResults.innerHTML = '😢 We are so very sorry!!!😢 There are no rooms available that match your search criteria. Please try again.';
     }
 }
 
@@ -189,7 +189,7 @@ export function showUsersRoomSearchResults(rooms) {
   usersRoomSearchResults.innerHTML = '';
   rooms.forEach(room => usersRoomSearchResults.innerHTML += createUserSearchRoomCard(room));
   if (!rooms.length) {
-    usersRoomSearchResults.innerHTML = 'We are so very sorry!!! There are no rooms available that match your search criteria. Please try again.';
+    usersRoomSearchResults.innerHTML = '😢 We are so very sorry!!!😢 There are no rooms available that match your search criteria. Please try again.';
   }
 }
 
