@@ -1,13 +1,13 @@
 export function fetchRooms() {
     return fetch('http://localhost:3001/api/v1/rooms')
         .then(response => response.json())
-        .then(data => data.rooms)
+        .then(data => data.rooms);
 }
 
 export function fetchBookings() {
     return fetch('http://localhost:3001/api/v1/bookings')
         .then(response => response.json())
-        .then(data => data.bookings)
+        .then(data => data.bookings);
 }
 
 export function fetchUsers() {
@@ -29,13 +29,12 @@ export function addRoomToBookings(userId, roomNumber, date) {
         }),
     })
 
-        .then(response => response.json() )
-        .catch(err => console.log(err));
+        .then(response => response.json());
 }
 
 export function deleteRoomFromBookings(bookingId) {
     return fetch(`http://localhost:3001/api/v1/bookings/${bookingId}`, {
         method: 'DELETE',
     })
-        .then(response => response.json())
+        .then(response => response.json());
 }

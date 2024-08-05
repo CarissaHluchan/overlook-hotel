@@ -50,12 +50,12 @@ export function showUserSearchResultsPage() {
 
 /**--------------------// Functions //----------------------------*/
 export function hideElement(element) {
-    element.classList.add('hidden')
+    element.classList.add('hidden');
     element.ariaHidden = 'true';
     element.disabled = 'true';
 }
 export function unhideElement(element) {
-    element.classList.remove('hidden')
+    element.classList.remove('hidden');
     element.ariaHidden = 'flase';
     element.removeAttribute('disabled');
 }
@@ -66,7 +66,6 @@ export function showLandingPageRoomCards(rooms) {
 }
 
 export function createLandingPageRoomCard(room) {
-    // room.number
     return `<article class="booking-card">
     <div class="room-details">
       <div class="room-info">
@@ -92,7 +91,7 @@ export function createLandingPageRoomCard(room) {
         <p>${room.costPerNight}</p>
       </div>
     </div>
-  </article>`
+  </article>`;
 }
 
 export function setRoomsAvailabeOnDateHeader(dateString) {
@@ -176,7 +175,7 @@ export function showUsersPastBookingsTotalCost(totalCost) {
 }
 
 export function showUsersFutureBookingsTotalCost(totalCost) {
-    usersFutureBookingsTotalCost.innerHTML = Number.parseFloat(totalCost).toFixed(2)
+    usersFutureBookingsTotalCost.innerHTML = Number.parseFloat(totalCost).toFixed(2);
 }
 
 export function setRoomsAvailabeOnDateUserSearchHeader(dateString) {
@@ -189,7 +188,6 @@ export function showUsersRoomSearchResults(rooms) {
 }
 
 export function createUserSearchRoomCard(room) {
-    // room.number
     return `<article class="booking-card">
               <div class="room-details">
                 <div class="room-info">

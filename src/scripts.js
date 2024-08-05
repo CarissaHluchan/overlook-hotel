@@ -60,7 +60,6 @@ var allBookings = [];
 var allRooms = [];
 var filteredRooms = [];
 var loggedInUsersBookings = [];
-// var roomFilters = { date: '', roomType: '', bedSize: '' };
 
 /**--------------------// DOM Nodes //----------------------------*/
 /*----// Page Views //----*/
@@ -112,14 +111,6 @@ userRoomSeachButton.addEventListener('click', (event) => {
     const roomsFilteredByDateAndType =
         filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
 
-    // console.log({
-    //     userSearchFilterByDate,
-    //     userSearchFilterByRoomType,
-    //     userSearchFilterByDateValue,
-    //     userSearchFilterByRoomTypeValue,
-    //     roomsFilteredByDateAndType,
-    // });
-
     setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
     showUsersRoomSearchResults(roomsFilteredByDateAndType);
     addEventListenersToBookThisRoomButton();
@@ -153,6 +144,7 @@ signInButton.addEventListener('click', (event) => {
                 setupUserDashboard();
             }
         })
+
         .catch(err => {
             alert('There was a error, please try again later.');
         });
@@ -165,19 +157,22 @@ function addEventListenersToDeleteButtons() {
             const bookingId = event.target.getAttribute('booking-id');
             deleteRoomFromBookings(bookingId)
                 .then(json => {
-                    console.log(json.message)
+                    console.log(json.message);
                 })
+
                 .then(() => fetchBookings())
                 .then(bookings => {
-                    allBookings === bookings
+                    allBookings === bookings;
                 })
+
                 .then(() => {
                     allBookings = allBookings.filter(booking => booking.id !== bookingId);
                     removeBookingCard(bookingId);
-                    setupUserDashboard()
+                    setupUserDashboard();
                 })
+
                 .catch(err => { 
-                    alert('There was an error removing your booking, please try again Later.')
+                    alert('There was an error removing your booking, please try again Later.');
                 });
         });
     });
@@ -191,19 +186,16 @@ function addEventListenersToBookThisRoomButton() {
             const roomNumber = Number(event.target.getAttribute('room-number'));
             const date = userSearchFilterByDate.value.replaceAll('-', '/').trim();
             const userId = loggedInUser.id;
-            console.log({
-                userid: loggedInUser.id,
-                roomNumber,
-                date,
-            })
+
             addRoomToBookings(userId, roomNumber, date)
                 .then(json => {
-                    allBookings.push(json.newBooking)
-                    updateUsersFutureBookings()
-                    console.log(json.message)
+                    allBookings.push(json.newBooking);
+                    updateUsersFutureBookings();
+                    console.log(json.message);
                 })
+
                 .catch(err => {
-                    alert('There was an error adding your booking, please try again Later.')
+                    alert('There was an error adding your booking, please try again Later.');
                 });
         });
     });
@@ -231,7 +223,6 @@ function updateGlobalVariables(rooms, bookings) {
 function setupUserDashboard() {
     updateLoggedInUsersNameHeader(loggedInUser.name);
     const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
-    // console.log({ allRooms });
     displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
     showUsersPastBookingsTotalCost(getTotalCost(pastAndFutureBookings.past, allRooms));
     showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
@@ -244,5 +235,5 @@ function updateUsersFutureBookings() {
     displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
     showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
     addEventListenersToDeleteButtons();
-    showUserSearchResultsPage()
+    showUserSearchResultsPage();
 }
