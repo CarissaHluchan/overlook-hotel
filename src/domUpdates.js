@@ -63,6 +63,9 @@ export function unhideElement(element) {
 export function showLandingPageRoomCards(rooms) {
     mainSearchResults.innerHTML = '';
     rooms.forEach(room => mainSearchResults.innerHTML += createLandingPageRoomCard(room))
+    if (!rooms.length) {
+      mainSearchResults.innerHTML = 'We are so sorry, but no rooms are available that match your search criteria. Please try again.';
+    }
 }
 
 export function createLandingPageRoomCard(room) {
@@ -185,6 +188,9 @@ export function setRoomsAvailabeOnDateUserSearchHeader(dateString) {
 export function showUsersRoomSearchResults(rooms) {
   usersRoomSearchResults.innerHTML = '';
   rooms.forEach(room => usersRoomSearchResults.innerHTML += createUserSearchRoomCard(room));
+  if (!rooms.length) {
+    usersRoomSearchResults.innerHTML = 'We are so sorry, but no rooms are available that match your search criteria. Please try again.';
+  }
 }
 
 export function createUserSearchRoomCard(room) {
