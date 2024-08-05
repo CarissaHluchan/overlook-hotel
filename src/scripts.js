@@ -163,10 +163,22 @@ function addEventListenersToDeleteButtons() {
     const deleteButtons = document.querySelectorAll('.detele-room-booking');
     deleteButtons.forEach(button => {
         button.addEventListener('click', (event) => {
-            const bookingId = event.target.getAttribute('booking-id');
-            allBookings = allBookings.filter(booking => booking.id !== bookingId);
-            removeBookingCard(bookingId);
-            // need to add DELETE fetch request. // Do I write that here?
+            const bookingIdOnCard = event.target.getAttribute('booking-id');
+            // allBookings = allBookings.filter(booking => booking.id !== bookingIdOnCard);
+            // removeBookingCard(bookingIdOnCard);
+            // console.log('article ID <><><><',event.target.closest('article'))
+            // const bookingId = allBookings.find(booking => allBookings.id === button.id) 
+            // console.log('Booking id',bookingId)
+            deleteRoomFromBookings(bookingIdOnCard)
+                .then(json => {
+                    console.log(json.message)
+                    
+                })
+                .then(() => fetchBookings())
+                .then(bookings => /**filter userbookings */)
+                .catch(err => {console.log('This is the error',err)});
+            // need to add DELETE fetch request. 
+            // september 7th 1722875383774 172287538377
         });
     });
 
@@ -179,16 +191,17 @@ function addEventListenersToBookThisRoomButton() {
             const roomNumber = Number(event.target.getAttribute('room-number'));
             const date = userSearchFilterByDate.value.replaceAll('-', '/').trim();
             const userId = loggedInUser.id;
-            // console.log({
-            //     userid: loggedInUser.id,
-            //     roomNumber,
-            //     date,
-            // })
+            console.log({
+                userid: loggedInUser.id,
+                roomNumber,
+                date,
+            })
             addRoomToBookings(userId, roomNumber, date)
                 .then(json => {
-                    console.log('NEW BOOKING <><><><', json.newBooking)
+                    // console.log('NEW BOOKING <><><><', json.newBooking)
                     allBookings.push(json.newBooking)
-                    setupUserDashboard()
+                    alert(json.message)
+                    updateUsersFutureBookings()
                 })
                 .catch(err => {
                     alert('There was an error, please try again Later.')
@@ -234,10 +247,10 @@ function setupUserDashboard() {
     showUserDashboard();
 }
 
-// function updateUsersFutureBookings() {
-//     const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
-//     displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
-//     showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
-//     addEventListenersToDeleteButtons();
-//     showUserSearchResultsPage()
-// }
+function updateUsersFutureBookings() {
+    const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
+    displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
+    showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
+    addEventListenersToDeleteButtons();
+    showUserSearchResultsPage()
+}

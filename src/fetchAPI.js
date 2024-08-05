@@ -32,7 +32,7 @@ export function addRoomToBookings(userId, roomNumber, date) {
         }),
     })
 
-        .then(response => response.json())
+        .then(response => response.json() )
         // .then(json => console.log(json))
         .catch(err => console.log(err));
 
@@ -56,12 +56,12 @@ export function addRoomToBookings(userId, roomNumber, date) {
 //      */
 // }
 
-export const deleteRoomFromBookings = () => {
-    return fetch(`http://localhost:3001/api/v1/bookings/${booking.id}`/* where<id> will be a number of a booking’s id*/, {
-        method: 'POST',
+export function deleteRoomFromBookings(bookingId) {
+    return fetch(`http://localhost:3001/api/v1/bookings/${bookingId}`/* where<id> will be a number of a booking’s id*/, {
+        method: 'DELETE',
     })
         .then(response => response.json())
-        .then(json => console.log(json))
+        // .then(json => console.log(json))
         .catch(err => console.log(err));
 
     /**Sample Successful Response: { message: Booking #<id> has been deleted }*/
