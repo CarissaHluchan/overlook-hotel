@@ -112,17 +112,17 @@ userRoomSeachButton.addEventListener('click', (event) => {
     const roomsFilteredByDateAndType =
         filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
 
-    console.log({
-        userSearchFilterByDate,
-        userSearchFilterByRoomType,
-        userSearchFilterByDateValue,
-        userSearchFilterByRoomTypeValue,
-        roomsFilteredByDateAndType,
-    });
+    // console.log({
+    //     userSearchFilterByDate,
+    //     userSearchFilterByRoomType,
+    //     userSearchFilterByDateValue,
+    //     userSearchFilterByRoomTypeValue,
+    //     roomsFilteredByDateAndType,
+    // });
 
     setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
     showUsersRoomSearchResults(roomsFilteredByDateAndType);
-    addEventListenersToBookThisRoomButton(); 
+    addEventListenersToBookThisRoomButton();
     showUserSearchResultsPage();
 });
 
@@ -154,8 +154,8 @@ signInButton.addEventListener('click', (event) => {
             }
         })
         .catch(error => {
-            console.log({ error });
-            alert('There is a error, please try again later.');
+            // console.log({ error });
+            alert('There was a error, please try again later.');
         });
 });
 
@@ -179,17 +179,29 @@ function addEventListenersToBookThisRoomButton() {
             const roomNumber = Number(event.target.getAttribute('room-number'));
             const date = userSearchFilterByDate.value.replaceAll('-', '/').trim();
             const userId = loggedInUser.id;
-            allRooms = allRooms.find(room => room.number === roomNumber);
-            console.log({
-                userid: loggedInUser.id,
-                roomNumber,
-                date,
-            })
-            addRoomToBookings(userId, roomNumber, date);
-            // display booking in upcoming bookings // need the generated booking ID
+            // console.log({
+            //     userid: loggedInUser.id,
+            //     roomNumber,
+            //     date,
+            // })
+            addRoomToBookings(userId, roomNumber, date)
+                .then(json => {
+                    console.log('NEW BOOKING <><><><', json.newBooking)
+                    allBookings.push(json.newBooking)
+                    setupUserDashboard()
+                })
+                .catch(err => {
+                    alert('There was an error, please try again Later.')
+                });
+            // display booking in upcoming bookings
+            // showUserSearchResultsPage();
         });
     });
 }
+
+// {message: 'Booking with id 1722868170381 successfully posted', newBooking: {…}}
+// message: "Booking with id 1722868170381 successfully posted"
+// newBooking: {date: "2024/08/05", id: "1722868170381", roomNumber: 2, userID: 20 }
 
 // bookThisRoomButton.addEventListener('click', addRoomToBookings);
 /**------------------// DOM functions //------------------------------*/
@@ -200,7 +212,7 @@ function start() {
         fetchBookings()]
     )
         .then(data => updateGlobalVariables(...data))
-        .catch(err => console.log(err))
+        .catch(err => {alert('There was an error loading this website, please try again later.')})
 
     showLandingPage();
 }
@@ -214,9 +226,18 @@ function updateGlobalVariables(rooms, bookings) {
 function setupUserDashboard() {
     updateLoggedInUsersNameHeader(loggedInUser.name);
     const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
+    // console.log({ allRooms });
     displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
     showUsersPastBookingsTotalCost(getTotalCost(pastAndFutureBookings.past, allRooms));
     showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
     addEventListenersToDeleteButtons();
     showUserDashboard();
 }
+
+// function updateUsersFutureBookings() {
+//     const pastAndFutureBookings = getUsersPastAndFutureBookings(getUsersBookings(loggedInUser.id, allBookings));
+//     displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
+//     showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
+//     addEventListenersToDeleteButtons();
+//     showUserSearchResultsPage()
+// }

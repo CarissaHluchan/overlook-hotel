@@ -33,7 +33,7 @@ export function addRoomToBookings(userId, roomNumber, date) {
     })
 
         .then(response => response.json())
-        .then(json => console.log(json))
+        // .then(json => console.log(json))
         .catch(err => console.log(err));
 
     /**Required Properties for Request: { "userID": 48, "date": "2019/09/23", "roomNumber": 4 }
