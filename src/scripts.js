@@ -71,8 +71,8 @@ const usersRoomSearchResultsWithHeader = document.querySelector('.user-rooms.sea
 
 /*----// Buttons //----*/
 /** Name and Logo */
-const goToLandingPageButton = document.querySelector('.go-to-landing-page-button');
-const goToUsersDashboardButton = document.querySelector('.go-to-user-dashboard-button');
+const goToLandingPageButtons = document.querySelectorAll('.go-to-landing-page-button');
+const goToUsersDashboardButtons = document.querySelectorAll('.go-to-user-dashboard-button');
 /* Login */
 const loginButton = document.querySelector('.login');
 const signOutButton = document.querySelector('.sign-out');
@@ -99,8 +99,17 @@ const userSearchFilterByRoomType = document.querySelector('.user-dashboard .filt
 /**-------------------// Event Listeners //---------------------------*/
 window.addEventListener('load', start);
 
-goToLandingPageButton.addEventListener('click', showLandingPage);
-goToUsersDashboardButton.addEventListener('click', showUserDashboard);
+goToLandingPageButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        start();
+    });
+});
+
+goToUsersDashboardButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        setupUserDashboard();
+    });
+});
 
 loginButton.addEventListener('click', showLoginPage);
 signOutButton.addEventListener('click', showLandingPage);
@@ -174,7 +183,7 @@ function addEventListenersToDeleteButtons() {
                     setupUserDashboard();
                 })
 
-                .catch(err => { 
+                .catch(err => {
                     alert('There was an error removing your booking, please try again Later.');
                 });
         });

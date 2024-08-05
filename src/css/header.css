@@ -24,6 +24,10 @@ nav {
       border-radius: 2px;
       ;
     }
+
+    &:hover {
+      cursor: pointer;
+    }
   }
   
   h2 {
