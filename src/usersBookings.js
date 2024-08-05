@@ -35,7 +35,6 @@ export const getTotalCost = (usersBookings, rooms) => {
     const totalCost = roomWithThisRoomNumber.reduce((acc, room) => {
         acc += room.costPerNight;
         return acc;
-        // return financial(acc);
     }, 0);
 
     return totalCost;

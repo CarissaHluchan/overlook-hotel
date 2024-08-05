@@ -17,6 +17,7 @@ const usersFutureBookings = document.querySelector('.future-bookings-section');
 const usersPastBookingsTotalCost = document.querySelector('.total-cost.past span');
 const usersFutureBookingsTotalCost = document.querySelector('.total-cost.upcoming span');
 const roomsAvailabeOnDateUserSearchHeader = document.getElementById('userSearchDates');
+const usersRoomSearchResults = document.querySelector('.user-rooms-search .user-bookings-section');
 
 /**--------------------// Page Views //----------------------------*/
 export function showLandingPage() {
@@ -171,15 +172,20 @@ export function removeBookingCard(bookingId) {
 }
 
 export function showUsersPastBookingsTotalCost(totalCost) {
-    usersPastBookingsTotalCost.innerHTML = totalCost;
+    usersPastBookingsTotalCost.innerHTML = Number.parseFloat(totalCost).toFixed(2);
 }
 
 export function showUsersFutureBookingsTotalCost(totalCost) {
-    usersFutureBookingsTotalCost.innerHTML = totalCost;
+    usersFutureBookingsTotalCost.innerHTML = Number.parseFloat(totalCost).toFixed(2)
 }
 
 export function setRoomsAvailabeOnDateUserSearchHeader(dateString) {
     roomsAvailabeOnDateUserSearchHeader.innerHTML = dateString;
+}
+
+export function showUsersRoomSearchResults(rooms) {
+  usersRoomSearchResults.innerHTML = '';
+  rooms.forEach(room => usersRoomSearchResults.innerHTML += createUserSearchRoomCard(room));
 }
 
 export function createUserSearchRoomCard(room) {
@@ -199,18 +205,18 @@ export function createUserSearchRoomCard(room) {
               </div>
               <div class="room-response">
                 <div class="room-info response">
-                  <p>residential suite</p>
-                  <p>queen</p>
-                  <p>1</p>
-                  <p>True</p>
-                  <p>1</p>
+                  <p>${room.roomType}</p>
+                  <p>${room.bedSize}</p>
+                  <p>${room.numBeds}</p>
+                  <p>${room.bidet}</p>
+                  <p>${room.number}</p>
                 </div>
                 <div class="room-cost response">
-                  <p>$358.4</p>
+                  <p>${room.costPerNight}</p>
                 </div>
               </div>
               <form class="booking-options">
                 <button type="button" class="book-room-button">Book this Room</button>
               </form>
-            </article>`
+            </article>`;
 }

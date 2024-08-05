@@ -26,7 +26,8 @@ import {
     showUsersPastBookingsTotalCost,
     showUsersFutureBookingsTotalCost,
     setRoomsAvailabeOnDateUserSearchHeader,
-    createUserSearchRoomCard
+    showUsersRoomSearchResults,
+
 } from './domUpdates.js'
 
 /*---// CORE Functions //---*/
@@ -108,17 +109,19 @@ signOutButton.addEventListener('click', showLandingPage);
 userRoomSeachButton.addEventListener('click', (event) => {
     const userSearchFilterByDateValue = userSearchFilterByDate.value.replaceAll('-', '/').trim();
     const userSearchFilterByRoomTypeValue = userSearchFilterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
+    const roomsFilteredByDateAndType =
+        filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
+
     console.log({
         userSearchFilterByDate,
         userSearchFilterByRoomType,
         userSearchFilterByDateValue,
         userSearchFilterByRoomTypeValue,
+        roomsFilteredByDateAndType,
     });
-    const roomsFilteredByDateAndType =
-        filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
 
     setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
-    createUserSearchRoomCard(roomsFilteredByDateAndType);
+    showUsersRoomSearchResults(roomsFilteredByDateAndType);
     showUserSearchResultsPage();
 });
 
@@ -172,7 +175,7 @@ function addEventListenersToBookThisRoomButton() {
     const bookThisRoomButton = document.querySelector('.book-room-button');
     bookThisRoomButton.forEach(button => {
         button.addEventListener('click', (event) => {
-            // POST fetch request to server. // Do I write the POST request here?
+            addRoomToBookings(loggedInUser.id, roomNumber, date)
             // display booking in upcoming bookings // need the generated booking ID
         });
     });
