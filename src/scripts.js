@@ -81,7 +81,7 @@ const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
 /* Search */
 const landingPageSearchButton = document.querySelector('.landing-page-search-button');
-const userRoomSeachButton = document.querySelector('.user-room-search-button');
+const userRoomSearchButton = document.querySelector('.user-room-search-button');
 const showPastBookingsButton = document.querySelector('.show-past-bookings-button')
 
 /*----// Filters //----*/
@@ -118,16 +118,8 @@ showPastBookingsButton.addEventListener('click', (event) => {
     showUserDashboard();
 });
 
-userRoomSeachButton.addEventListener('click', (event) => {
-    const userSearchFilterByDateValue = userSearchFilterByDate.value.replaceAll('-', '/').trim();
-    const userSearchFilterByRoomTypeValue = userSearchFilterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
-    const roomsFilteredByDateAndType =
-        filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
-
-    setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
-    showUsersRoomSearchResults(roomsFilteredByDateAndType);
-    addEventListenersToBookThisRoomButton();
-    showUserSearchResultsPage();
+userRoomSearchButton.addEventListener('click', (event) => {
+    updateUserRoomSearchResults();
 });
 
 landingPageSearchButton.addEventListener('click', (event) => {
@@ -203,6 +195,7 @@ function addEventListenersToBookThisRoomButton() {
                 .then(json => {
                     allBookings.push(json.newBooking);
                     updateUsersFutureBookings();
+                    updateUserRoomSearchResults();
                     console.log(json.message);
                 })
 
@@ -247,5 +240,17 @@ function updateUsersFutureBookings() {
     displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
     showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
     addEventListenersToDeleteButtons();
+    showUserSearchResultsPage();
+}
+
+function updateUserRoomSearchResults() {
+    const userSearchFilterByDateValue = userSearchFilterByDate.value.replaceAll('-', '/').trim();
+    const userSearchFilterByRoomTypeValue = userSearchFilterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
+    const roomsFilteredByDateAndType =
+        filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
+
+    setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
+    showUsersRoomSearchResults(roomsFilteredByDateAndType);
+    addEventListenersToBookThisRoomButton();
     showUserSearchResultsPage();
 }
