@@ -163,22 +163,21 @@ function addEventListenersToDeleteButtons() {
     const deleteButtons = document.querySelectorAll('.detele-room-booking');
     deleteButtons.forEach(button => {
         button.addEventListener('click', (event) => {
-            const bookingIdOnCard = event.target.getAttribute('booking-id');
-            // allBookings = allBookings.filter(booking => booking.id !== bookingIdOnCard);
-            // removeBookingCard(bookingIdOnCard);
-            // console.log('article ID <><><><',event.target.closest('article'))
-            // const bookingId = allBookings.find(booking => allBookings.id === button.id) 
-            // console.log('Booking id',bookingId)
-            deleteRoomFromBookings(bookingIdOnCard)
+            const bookingId = event.target.getAttribute('booking-id');
+            deleteRoomFromBookings(bookingId)
                 .then(json => {
                     console.log(json.message)
-                    
                 })
                 .then(() => fetchBookings())
-                .then(bookings => /**filter userbookings */)
-                .catch(err => {console.log('This is the error',err)});
-            // need to add DELETE fetch request. 
-            // september 7th 1722875383774 172287538377
+                .then(bookings => {
+                    allBookings === bookings
+                })
+                .then(() => {
+                    allBookings = allBookings.filter(booking => booking.id !== bookingId);
+                    removeBookingCard(bookingId);
+                    setupUserDashboard()
+                })
+                .catch(err => { console.log('This is the error', err) });
         });
     });
 
@@ -225,7 +224,7 @@ function start() {
         fetchBookings()]
     )
         .then(data => updateGlobalVariables(...data))
-        .catch(err => {alert('There was an error loading this website, please try again later.')})
+        .catch(err => { alert('There was an error loading this website, please try again later.') })
 
     showLandingPage();
 }
