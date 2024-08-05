@@ -1,38 +1,18 @@
-const { bookingsSampleData } = require('./data-sample/bookings-sample');
-const { roomsSampleData } = require('./data-sample/rooms-sample');
+// const { usersSampleData } = require('../src/data-sample/users-sample');
 
-export const getUsersBookings = (userID = [], bookings) => {
-    const usersBookings = bookings.filter(booking => booking.userID === userID);
-    return usersBookings;
-}
+export const validateLoginCredentials = (username, password) => {
+    if (password !== 'overlook2021') {
+        return false;
+    }
 
-export const getUsersPastAndFutureBookings = (usersBookings) => {
-    const now = new Date().getTime();
-    const pastAndFutureBookings = usersBookings.reduce((acc, booking) => {
-        const bookingValue = new Date(booking.date).getTime();
-        if (bookingValue < now) {
-            acc.past.push(booking);
-        } else {
-            acc.upcoming.push(booking);
-        }
-        return acc;
-    }, { past: [], upcoming: [] });
-    return pastAndFutureBookings;
-}
+    if (username.substring(0, 8) !== 'customer') {
+        return false;
+    }
+    
+    const customerID = Number(username.substring(8));
+    if (isNaN(customerID)) {
+        return false;
+    }
 
-export const getTotalCost = (usersBookings, rooms) => {
-    const usersRooms = usersBookings.map(booking => booking.roomNumber);
-
-    const roomWithThisRoomNumber = rooms.filter(room => {
-        if (usersRooms.includes(room.number)) {
-            return room;
-        }
-    });
-
-    const totalCost = roomWithThisRoomNumber.reduce((acc, room) => {
-        acc += room.costPerNight;
-        return acc;
-    }, 0);
-
-    return totalCost;
+    return customerID;
 }

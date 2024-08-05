@@ -32,11 +32,12 @@
   }
   
   .filter-label,
-  .filter-input {
+  #filterByRoomType {
     font-size: clamp(10px, 1vw, 20px);
     flex: 0 2 23%;
   }
   
-  .search-button {
+  .landing-page-search-button,
+  .user-room-search-button {
     margin-right: 1vw;
   }
