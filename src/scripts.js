@@ -82,6 +82,7 @@ const passwordInput = document.getElementById('password');
 /* Search */
 const landingPageSearchButton = document.querySelector('.landing-page-search-button');
 const userRoomSeachButton = document.querySelector('.user-room-search-button');
+const showPastBookingsButton = document.querySelector('.show-past-bookings-button')
 
 /*----// Filters //----*/
 const landingPageFilterByDate = document.querySelector('.landing-page .filter-by-date');
@@ -90,11 +91,10 @@ const landingPageFilterByRoomType = document.querySelector('.landing-page .filte
 const userSearchFilterByDate = document.querySelector('.user-dashboard .filter-by-date');
 const userSearchFilterByRoomType = document.querySelector('.user-dashboard .filter-by-room-type');
 
-
 /*----// Room card //----*/
-const roomResponse = document.querySelector('.room-response');
-const roomInfo = document.querySelector('.room-info');
-const roomCost = document.querySelector('.room-cost');
+// const roomResponse = document.querySelector('.room-response');
+// const roomInfo = document.querySelector('.room-info');
+// const roomCost = document.querySelector('.room-cost');
 
 /**-------------------// Event Listeners //---------------------------*/
 window.addEventListener('load', start);
@@ -104,6 +104,10 @@ goToUsersDashboardButton.addEventListener('click', showUserDashboard);
 
 loginButton.addEventListener('click', showLoginPage);
 signOutButton.addEventListener('click', showLandingPage);
+
+showPastBookingsButton.addEventListener('click', (event) => {
+    showUserDashboard();
+});
 
 userRoomSeachButton.addEventListener('click', (event) => {
     const userSearchFilterByDateValue = userSearchFilterByDate.value.replaceAll('-', '/').trim();
@@ -116,7 +120,6 @@ userRoomSeachButton.addEventListener('click', (event) => {
     addEventListenersToBookThisRoomButton();
     showUserSearchResultsPage();
 });
-
 
 landingPageSearchButton.addEventListener('click', (event) => {
     const landingPageFilterByDateValue = landingPageFilterByDate.value.replaceAll('-', '/').trim();
