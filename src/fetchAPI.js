@@ -2,14 +2,12 @@ export function fetchRooms() {
     return fetch('http://localhost:3001/api/v1/rooms')
         .then(response => response.json())
         .then(data => data.rooms)
-        // .catch(error => console.log(error))
 }
 
 export function fetchBookings() {
     return fetch('http://localhost:3001/api/v1/bookings')
         .then(response => response.json())
         .then(data => data.bookings)
-        // .catch(error => console.log(error))
 }
 
 export function fetchUsers() {
@@ -40,5 +38,4 @@ export function deleteRoomFromBookings(bookingId) {
         method: 'DELETE',
     })
         .then(response => response.json())
-        // .catch(err => console.log(err));
 }
