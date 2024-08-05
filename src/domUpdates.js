@@ -189,7 +189,7 @@ export function showUsersRoomSearchResults(rooms) {
   usersRoomSearchResults.innerHTML = '';
   rooms.forEach(room => usersRoomSearchResults.innerHTML += createUserSearchRoomCard(room));
   if (!rooms.length) {
-    usersRoomSearchResults.innerHTML = '😢 We are so very sorry!!!😢 There are no rooms available that match your search criteria. Please try again.';
+    usersRoomSearchResults.innerHTML += noSearchRusultsMessage();
   }
 }
 
@@ -223,4 +223,12 @@ export function createUserSearchRoomCard(room) {
                 <button room-number="${room.number}" type="button" class="book-room-button">Book this Room</button>
               </form>
             </article>`;
+}
+
+export function noSearchRusultsMessage() {
+  return `<article roll="listitem" class="booking-card">
+          <p>😢 We are so very sorry!!!😢 <br>
+          There are no more rooms available that match your search criteria. <br>
+          Please adjust your search criteria and try again.</p>
+        </article>`
 }
