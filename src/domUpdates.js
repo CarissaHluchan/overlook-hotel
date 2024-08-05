@@ -69,7 +69,7 @@ export function showLandingPageRoomCards(rooms) {
 }
 
 export function createLandingPageRoomCard(room) {
-    return `<article class="booking-card">
+    return `<article roll="listitem" class="booking-card">
     <div class="room-details">
       <div class="room-info">
         <p>Room type:</p>
@@ -128,7 +128,7 @@ export function showLoggedInUsersFutureBookings(usersBookings, rooms) {
 }
 
 export function createLoggedInUsersBookingCard(userBooking, room, allowDeleteBooking = false) {
-    let loggedInUsersBookingCard = `<article class="booking-card" booking-id="${userBooking.id}">
+    let loggedInUsersBookingCard = `<article roll="listitem" class="booking-card" booking-id="${userBooking.id}">
     <div class="room-details">
       <div class="room-info">
         <p>Date:</p>
@@ -194,7 +194,7 @@ export function showUsersRoomSearchResults(rooms) {
 }
 
 export function createUserSearchRoomCard(room) {
-    return `<article class="booking-card">
+    return `<article roll="listitem" class="booking-card">
               <div class="room-details">
                 <div class="room-info">
                   <p>Room type:</p>
