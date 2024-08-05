@@ -91,7 +91,7 @@ export function createLandingPageRoomCard(room) {
         <p>${room.number}</p>
       </div>
       <div class="room-cost response">
-        <p>${room.costPerNight}</p>
+        <p>$${room.costPerNight}</p>
       </div>
     </div>
   </article>`;
@@ -152,7 +152,7 @@ export function createLoggedInUsersBookingCard(userBooking, room, allowDeleteBoo
         <p>${room.number}</p>
       </div>
       <div class="room-cost response">
-        <p>${room.costPerNight}</p>
+        <p>$${room.costPerNight}</p>
       </div>
     </div>`;
     if (allowDeleteBooking) {
@@ -216,7 +216,7 @@ export function createUserSearchRoomCard(room) {
                   <p>${room.number}</p>
                 </div>
                 <div class="room-cost response">
-                  <p>${room.costPerNight}</p>
+                  <p>$${room.costPerNight}</p>
                 </div>
               </div>
               <form class="booking-options">
