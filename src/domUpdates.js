@@ -160,7 +160,7 @@ export function createLoggedInUsersBookingCard(userBooking, room, allowDeleteBoo
     </div>`;
   if (allowDeleteBooking) {
     loggedInUsersBookingCard += `<div class="booking-options">
-            <img tabindex="0" role="button" type="button" class="detele-room-booking" src="./images/delete.png" alt="detele room from booking" booking-id="${userBooking.id}">
+            <img tabindex="0" role="button" type="button" class="delete-room-booking" src="./images/delete.png" alt="delete room from booking" booking-id="${userBooking.id}">
         </div>`;
   }
   loggedInUsersBookingCard += '</li>';
