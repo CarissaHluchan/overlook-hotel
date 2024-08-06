@@ -19,8 +19,6 @@ const usersFutureBookingsTotalCost = document.querySelector('.total-cost.upcomin
 const roomsAvailabeOnDateUserSearchHeader = document.getElementById('userSearchDates');
 const usersRoomSearchResults = document.querySelector('.user-rooms-search .user-bookings-section');
 
-/* */
-
 /**--------------------// Page Views //----------------------------*/
 export function showLandingPage() {
   unhideElement(landingPage);
@@ -163,6 +161,7 @@ export function createLoggedInUsersBookingCard(userBooking, room, allowDeleteBoo
             <img aria-label="delete room from bookings" tabindex="0" role="button" type="button" class="delete-room-booking" src="./images/delete.png" alt="delete room from booking" booking-id="${userBooking.id}">
         </div>`;
   }
+  
   loggedInUsersBookingCard += '</li>';
   return loggedInUsersBookingCard;
 }
@@ -234,5 +233,5 @@ export function noSearchRusultsMessage() {
           <p>😢 We are so very sorry!!!😢 <br>
           There are no more rooms available that match your search criteria. <br>
           Please adjust your search criteria and try again.</p>
-        </li>`
+        </li>`;
 }
