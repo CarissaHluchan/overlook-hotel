@@ -25,25 +25,25 @@
       <nav>
         <div class="go-to-landing-page-button">
           <img src="./images/overlooklogo.png" alt="overlook hotel logo">
-          <h2>Overlook Hotel</h2>
+          <div class="overlookHotelLogoTitle">Overlook Hotel</div>
         </div>
         <button class="login">Login</button>
       </nav>
       <div class="overlook-picture">
         <div class="title-message">
-          <p class="welcome-to">Welcome to the</p>
+          <h1 class="welcome-to">Welcome to the</h1>
           <h1 class="title" tabindex="0">Overlook Hotel</h1>
         </div>
         <form class="search-room-form" aria-label="Room search">
-          <p class="search-book-your-stay">See our rooms</p>
+          <p class="search-book-your-stay" tabindex="0">See our rooms</p>
           <search>
-            <label id="searchByDate" class="filter-label" for="start"> Enter the Date:</label>
-            <input aria-label="search by date" class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy"
+            <label id="searchByDate" class="filter-label" for="landingPageSearchByDate"  aria-hidden="true"> Enter the Date:</label>
+            <input aria-label="search by date" id="landingPageSearchByDate" class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy"
               value="" min="1997-01-01" max="2030-12-31">
           </search>
           <search>
-            <label id="landingPageFilterRoomsByType" class="filter-label">Filter by Room Type:</label>
-            <select aria-labelledby="landingPageFilterRoomsByType" name="room type" class="filter-by-room-type">
+            <label for="landingPageFilterRoomsByType" class="filter-label">Filter by Room Type:</label>
+            <select id="landingPageFilterRoomsByType" aria-labelledby="landingPageFilterRoomsByType" name="room type" class="filter-by-room-type">
               <option value="">--select room type--</option>
               <option value="residential-suite">Residential Suite</option>
               <option value="junior-suite">Junior Suite</option>
@@ -56,8 +56,8 @@
     </header>
     <main class="landing-page-main">
       <section class="section-header" role="sectionhead">
-        <h3 tabindex="0">Rooms at Overlook/Rooms available <span id="searchedDate" class="hidden">on mm/dd/yyyy</span>
-        </h3>
+        <h2 tabindex="0">Rooms at Overlook/Rooms available <span id="searchedDate" class="hidden">on mm/dd/yyyy</span>
+        </h2>
         <p class="sign-in-to-book-message">Sign in to book a room</p>
       </section>
       <ul class="main-search-results" aria-label="rooms available" tabindex="0">
@@ -81,13 +81,13 @@
       </nav>
       <div class="overlook-picture">
         <div class="title-message">
-          <p class="welcome-to">Welcome to the</p>
+          <h1 class="welcome-to">Welcome to the</h1>
           <h1 class="title">Overlook Hotel</h1>
         </div>
     </header>
     <main>
       <section class="section-header" role="sectionhaed">
-        <h3>Sign in to your account:</h3>
+        <h2>Sign in to your account:</h2>
       </section>
       <section class="main-search-results">
         <form class="login-form">
@@ -96,7 +96,7 @@
             <input type="text" id="username" name="username"><br>
           </div>
           <div>
-            <label for="pwd">Password:</label><br>
+            <label for="password">Password:</label><br>
             <input type="password" id="password" name="password">
           </div>
           <div>
@@ -107,7 +107,10 @@
     </main>
     <footer>
       <p>Created By: Carissa Hluchan</p>
-      <a href="https://github.com/CarissaHluchan/overlook-hotel">See it on Github</a>
+      <a href="https://github.com/CarissaHluchan/overlook-hotel"
+        aria-label="Created by Carissa Hluchan. See it on Github.">
+        See it on Github
+      </a>
     </footer>
   </div>
   <div class="user-dashboard">
@@ -115,25 +118,25 @@
       <nav>
         <div class="go-to-user-dashboard-button">
           <img src="./images/overlooklogo.png" alt="overlook hotel logo">
-          <h2>Overlook Hotel</h2>
+          <div class="overlookHotelLogoTitle">Overlook Hotel</div>
         </div>
         <button class="sign-out">Sign Out</button>
       </nav>
       <div class="overlook-picture">
         <div class="title-message">
-          <p class="welcome-to">Welcome to the</p>
+          <h1 class="welcome-to">Welcome to the</h1>
           <h1 class="title">Overlook Hotel</h1>
         </div>
         <form class="search-room-form">
-          <p class="search-book-your-stay">Book Your Stay</p>
+          <p class="search-book-your-stay" tabindex="0">Book Your Stay</p>
           <search>
-            <label class="filter-label" for="start"> Enter the Date:</label>
-            <input class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01"
+            <label class="filter-label" for="loggedInSearchByDate" aria-hidden="true"> Enter the Date:</label>
+            <input id="loggedInSearchByDate" class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01"
               max="2030-12-31">
           </search>
           <search>
-            <label class="filter-label">Filter by Room Type:</label>
-            <select name="room type" class="filter-by-room-type">
+            <label for="logedInFilterByRoom" class="filter-label">Filter by Room Type:</label>
+            <select id="logedInFilterByRoom" name="room type" class="filter-by-room-type">
               <option value="">--select room type--</option>
               <option value="residential-suite">Residential Suite</option>
               <option value="junior-suite">Junior Suite</option>
@@ -146,19 +149,19 @@
     </header>
     <main>
       <section class="section-header" role="sectionhaed">
-        <h3>Hello <span id="loggedInUsersNameHeader"></span>, these are all your room bookings</h3>
+        <h2>Hello <span id="loggedInUsersNameHeader"></span>, these are all your room bookings</h2>
       </section>
       <section class="user-rooms">
         <div class="user-rooms-past">
           <section class="user-section-header" role="sectionhaed">
-            <h4 tabindex="0" class="total-cost past">Past Bookings: $<span></span></h4>
+            <h3 tabindex="0" class="total-cost past">Past Bookings: $<span></span></h3>
           </section>
           <ul tabindex="0" class="user-bookings-section" aria-label="Past bookings">
           </ul>
         </div>
         <div class="user-rooms-search">
           <section class="user-section-header" role="sectionhaed">
-            <h4>All rooms available on <span id="userSearchDates"></span></h4>
+            <h3>All rooms available on <span id="userSearchDates"></span></h3>
             <button type="button" class="show-past-bookings-button">Show past bookings</button>
           </section>
           <ul tabindex="0" class="user-bookings-section" aria-label="Room search results">
@@ -166,7 +169,7 @@
         </div>
         <div class="user-upcoming-bookings">
           <section class="user-section-header" role="sectionhaed">
-            <h5 tabindex="0" class="total-cost upcoming">Upcoming Bookings: $<span></span></h5>
+            <h4 tabindex="0" class="total-cost upcoming">Upcoming Bookings: $<span></span></h4>
           </section>
           <ul tabindex="0" class="future-bookings-section" aria-label="Upcoming bookings">
           </ul>
@@ -175,7 +178,10 @@
     </main>
     <footer>
       <p>Created By: Carissa Hluchan</p>
-      <a href="https://github.com/CarissaHluchan/overlook-hotel">See it on Github</a>
+      <a href="https://github.com/CarissaHluchan/overlook-hotel"
+        aria-label="Created by Carissa Hluchan. See it on Github.">
+        See it on Github
+      </a>
     </footer>
   </div>
 

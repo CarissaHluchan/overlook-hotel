@@ -30,15 +30,15 @@
   /* border: 3px solid black; */
 }
 
-h4,
-h5 {
+h3,
+h4 {
   font-size: clamp(16px, 1vw, 28px);
   /* width: clamp(150px, 15vw, 225px); */
   margin: 0;
   /* border: 3px solid blue; */
 }
 
-h5 {
+h4 {
   /* width: clamp(177px, 15vw, 225px); */
 }
 
@@ -59,6 +59,12 @@ h5 {
 
 .future-bookings-section {
   background-color: var(--second-acc-color);
+}
+
+.delete-room-booking {
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* ---------------------------------------User-Search-section------------------------------------- */
