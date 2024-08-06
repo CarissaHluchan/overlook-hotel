@@ -1,6 +1,8 @@
 .main-search-results {
     height: 65vh;
     width: 100%;
+    margin: 0;
+    padding: 0;
     background-color: var(--tertiary-color);
     display: flex;
     flex-wrap: wrap;

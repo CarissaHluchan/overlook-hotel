@@ -31,8 +31,7 @@
 }
 
 h4,
-h5,
-.total-cost {
+h5 {
   font-size: clamp(16px, 1vw, 28px);
   /* width: clamp(150px, 15vw, 225px); */
   margin: 0;
@@ -48,6 +47,8 @@ h5 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding: 0;
   /* border: 3px solid blue; */
 }
 

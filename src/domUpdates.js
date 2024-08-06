@@ -19,6 +19,8 @@ const usersFutureBookingsTotalCost = document.querySelector('.total-cost.upcomin
 const roomsAvailabeOnDateUserSearchHeader = document.getElementById('userSearchDates');
 const usersRoomSearchResults = document.querySelector('.user-rooms-search .user-bookings-section');
 
+/* */
+
 /**--------------------// Page Views //----------------------------*/
 export function showLandingPage() {
   unhideElement(landingPage);
@@ -78,13 +80,13 @@ export function createLandingPageRoomCard(room) {
         <p>Bidet:</p>
        <p>Room number:</p>
       </div>
-     <div class="room-cost" aria-hidden="true">
+     <div class="room-cost">
         <p>Cost per night:</p>
       </div>
     </div>
     <div class="room-response">
       <div class="room-info response">
-        <div aria-label="Room type">${room.roomType}</div>
+        <p aria-label="Room type">${room.roomType}</p>
         <p aria-label="Bed size">${room.bedSize}</p>
         <p aria-label="Number of Beds">${room.numBeds}</p>
         <p aria-label="Has bidet">${room.bidet}</p>
@@ -128,8 +130,9 @@ export function showLoggedInUsersFutureBookings(usersBookings, rooms) {
 }
 
 export function createLoggedInUsersBookingCard(userBooking, room, allowDeleteBooking = false) {
-  let loggedInUsersBookingCard = `<article role="listitem" class="booking-card" booking-id="${userBooking.id}">
-    <div class="room-details">
+  let loggedInUsersBookingCard = 
+  `<li class="booking-card" booking-id="${userBooking.id}" aria-label="Booking on ${userBooking.date} Room ${room.number}">
+    <div class="room-details" aria-hidden="true">
       <div class="room-info">
         <p>Date:</p>
         <p>Room type:</p>
@@ -144,23 +147,23 @@ export function createLoggedInUsersBookingCard(userBooking, room, allowDeleteBoo
     </div>
     <div class="room-response">
       <div class="room-info response">
-        <p>${userBooking.date}</p>
-        <p>${room.roomType}</p>
-       <p>${room.bedSize}</p>
-       <p>${room.numBeds}</p>
-        <p>${room.bidet}</p>
-        <p>${room.number}</p>
+        <p aria-label="Date of booking">${userBooking.date}</p>
+        <p aria-label="Room type">${room.roomType}</p>
+        <p aria-label="Bed size">${room.bedSize}</p>
+        <p aria-label="Number of Beds">${room.numBeds}</p>
+        <p aria-label="Has bidet">${room.bidet}</p>
+        <p aria-label="Room number">${room.number}</p>
       </div>
       <div class="room-cost response">
-        <p>$${room.costPerNight}</p>
+        <p aria-label="Cost per night">$${room.costPerNight}</p>
       </div>
     </div>`;
   if (allowDeleteBooking) {
     loggedInUsersBookingCard += `<div class="booking-options">
-            <img type="button" class="detele-room-booking" src="./images/delete.png" alt="detele room from booking" booking-id="${userBooking.id}">
+            <img tabindex="0" role="button" type="button" class="detele-room-booking" src="./images/delete.png" alt="detele room from booking" booking-id="${userBooking.id}">
         </div>`;
   }
-  loggedInUsersBookingCard += '</article>';
+  loggedInUsersBookingCard += '</li>';
   return loggedInUsersBookingCard;
 }
 
@@ -195,8 +198,8 @@ export function showUsersRoomSearchResults(rooms) {
 }
 
 export function createUserSearchRoomCard(room) {
-  return `<article role="listitem" class="booking-card">
-              <div class="room-details">
+  return `<li class="booking-card" aria-label="Room ${room.roomType}">
+              <div class="room-details" aria-hidden="true">
                 <div class="room-info">
                   <p>Room type:</p>
                   <p>Bed size:</p>
@@ -210,26 +213,26 @@ export function createUserSearchRoomCard(room) {
               </div>
               <div class="room-response">
                 <div class="room-info response">
-                  <p>${room.roomType}</p>
-                  <p>${room.bedSize}</p>
-                  <p>${room.numBeds}</p>
-                  <p>${room.bidet}</p>
-                  <p>${room.number}</p>
+                  <p aria-label="Room type">${room.roomType}</p>
+                  <p aria-label="Bed size">${room.bedSize}</p>
+                  <p aria-label="Number of Beds">${room.numBeds}</p>
+                  <p aria-label="Has bidet">${room.bidet}</p>
+                  <p aria-label="Room number">${room.number}</p>
                 </div>
                 <div class="room-cost response">
-                  <p tabindex="11">$${room.costPerNight}</p>
+                  <p aria-label="Cost per night">$${room.costPerNight}</p>
                 </div>
               </div>
-              <form class="booking-options">
-                <button tabindex="10" room-number="${room.number}" type="button" class="book-room-button">Book this Room</button>
-              </form>
-            </article>`;
+              <div class="booking-options">
+                <button room-number="${room.number}" type="button" class="book-room-button">Book this Room</button>
+              </div>
+            </li>`;
 }
 
 export function noSearchRusultsMessage() {
-  return `<article roll="listitem" class="booking-card">
+  return `<li roll="listitem" class="booking-card">
           <p>😢 We are so very sorry!!!😢 <br>
           There are no more rooms available that match your search criteria. <br>
           Please adjust your search criteria and try again.</p>
-        </article>`
+        </li>`
 }
