@@ -34,16 +34,16 @@
           <p class="welcome-to">Welcome to the</p>
           <h1 class="title">Overlook Hotel</h1>
         </div>
-        <form class="search-room-form">
+        <form class="search-room-form" aria-label="Room search">
           <p class="search-book-your-stay">See our rooms</p>
           <search>
             <label id="searchByDate" class="filter-label" for="start"> Enter the Date:</label>
-            <input class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01"
-              max="2030-12-31">
+            <input aria-label="search by date" class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy"
+              value="" min="1997-01-01" max="2030-12-31">
           </search>
           <search>
-            <label class="filter-label">Filter by Room Type:</label>
-            <select name="room type" class="filter-by-room-type">
+            <label id="landingPageFilterRoomsByType" class="filter-label">Filter by Room Type:</label>
+            <select aria-labelledby="landingPageFilterRoomsByType" name="room type" class="filter-by-room-type">
               <option value="">--select room type--</option>
               <option value="residential-suite">Residential Suite</option>
               <option value="junior-suite">Junior Suite</option>
@@ -59,7 +59,7 @@
         <h3>Rooms at Overlook/Rooms available <span id="searchedDate" class="hidden">on mm/dd/yyyy</span></h3>
         <p class="sign-in-to-book-message">Sign in to book a room</p>
       </section>
-      <ul class="main-search-results" aria-label="rooms available list" tabindex="0">
+      <ul class="main-search-results" aria-label="rooms available" tabindex="0">
       </ul>
     </main>
     <footer>
