@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Overlook Hotel</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap"
+    rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="landing-page">
+    <header>
+      <nav>
+        <div class="go-to-landing-page-button">
+          <img src="./images/overlooklogo.png" alt="overlook hotel logo">
+          <div class="overlookHotelLogoTitle">Overlook Hotel</div>
+        </div>
+        <button class="login">Login</button>
+      </nav>
+      <div class="overlook-picture">
+        <div class="title-message">
+          <h1 class="welcome-to">Welcome to the</h1>
+          <h1 class="title" tabindex="0">Overlook Hotel</h1>
+        </div>
+        <form class="search-room-form" aria-label="Room search">
+          <p class="search-book-your-stay" tabindex="0">See our rooms</p>
+          <search>
+            <label id="searchByDate" class="filter-label" for="landingPageSearchByDate" aria-hidden="true"> Enter the
+              Date:</label>
+            <input aria-label="search by date" id="landingPageSearchByDate" class="filter-by-date" type="date"
+              name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01" max="2030-12-31">
+          </search>
+          <search>
+            <label for="landingPageFilterRoomsByType" class="filter-label">Filter by Room Type:</label>
+            <select id="landingPageFilterRoomsByType" aria-labelledby="landingPageFilterRoomsByType" name="room type"
+              class="filter-by-room-type">
+              <option value="">--select room type--</option>
+              <option value="residential-suite">Residential Suite</option>
+              <option value="junior-suite">Junior Suite</option>
+              <option value="suite">Suite</option>
+              <option value="single-room">Single Room</option>
+            </select>
+          </search>
+          <button type="button" class="landing-page-search-button">Search</button>
+        </form>
+    </header>
+    <main class="landing-page-main">
+      <section class="section-header">
+        <h2 tabindex="0">Rooms at Overlook/Rooms available <span id="searchedDate" class="hidden">on mm/dd/yyyy</span>
+        </h2>
+        <p class="sign-in-to-book-message">Sign in to book a room</p>
+      </section>
+      <ul class="main-search-results" aria-label="rooms available" tabindex="0">
+      </ul>
+    </main>
+    <footer>
+      <p>Created By: Carissa Hluchan</p>
+      <a href="https://github.com/CarissaHluchan/overlook-hotel"
+        aria-label="Created by Carissa Hluchan. See it on Github.">
+        See it on Github
+      </a>
+    </footer>
+  </div>
+  <div class="login-page">
+    <header>
+      <nav>
+        <div class="go-to-landing-page-button">
+          <img src="./images/overlooklogo.png" alt="overlook hotel logo">
+          <div class="overlookHotelLogoTitle">Overlook Hotel</div>
+        </div>
+      </nav>
+      <div class="overlook-picture">
+        <div class="title-message">
+          <h1 class="welcome-to">Welcome to the</h1>
+          <h1 class="title">Overlook Hotel</h1>
+        </div>
+    </header>
+    <main>
+      <section class="section-header">
+        <h2>Sign in to your account:</h2>
+      </section>
+      <section class="main-search-results">
+        <form class="login-form">
+          <div>
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+          </div>
+          <div>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password">
+          </div>
+          <div>
+            <button id="signInButton" type="button">Sign In</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>Created By: Carissa Hluchan</p>
+      <a href="https://github.com/CarissaHluchan/overlook-hotel"
+        aria-label="Created by Carissa Hluchan. See it on Github.">
+        See it on Github
+      </a>
+    </footer>
+  </div>
+  <div class="user-dashboard">
+    <header>
+      <nav>
+        <div class="go-to-user-dashboard-button">
+          <img src="./images/overlooklogo.png" alt="overlook hotel logo">
+          <div class="overlookHotelLogoTitle">Overlook Hotel</div>
+        </div>
+        <button class="sign-out">Sign Out</button>
+      </nav>
+      <div class="overlook-picture">
+        <div class="title-message">
+          <h1 class="welcome-to">Welcome to the</h1>
+          <h1 class="title">Overlook Hotel</h1>
+        </div>
+        <form class="search-room-form">
+          <p class="search-book-your-stay" tabindex="0">Book Your Stay</p>
+          <search>
+            <label class="filter-label" for="loggedInSearchByDate" aria-hidden="true"> Enter the Date:</label>
+            <input id="loggedInSearchByDate" class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy"
+              value="" min="1997-01-01" max="2030-12-31">
+          </search>
+          <search>
+            <label for="logedInFilterByRoom" class="filter-label">Filter by Room Type:</label>
+            <select id="logedInFilterByRoom" name="room type" class="filter-by-room-type">
+              <option value="">--select room type--</option>
+              <option value="residential-suite">Residential Suite</option>
+              <option value="junior-suite">Junior Suite</option>
+              <option value="suite">Suite</option>
+              <option value="single-room">Single Room</option>
+            </select>
+          </search>
+          <button type="button" class="user-room-search-button">Search</button>
+        </form>
+    </header>
+    <main>
+      <section class="section-header">
+        <h2>Hello <span id="loggedInUsersNameHeader"></span>, these are all your room bookings</h2>
+      </section>
+      <section class="user-rooms">
+        <div class="user-rooms-past">
+          <section class="user-section-header">
+            <h3 tabindex="0" class="total-cost past">Past Bookings: $<span></span></h3>
+          </section>
+          <ul tabindex="0" class="user-bookings-section" aria-label="Past bookings">
+          </ul>
+        </div>
+        <div class="user-rooms-search">
+          <section class="user-section-header">
+            <h3>All rooms available on <span id="userSearchDates"></span></h3>
+            <button type="button" class="show-past-bookings-button">Show past bookings</button>
+          </section>
+          <ul tabindex="0" class="user-bookings-section" aria-label="Room search results">
+          </ul>
+        </div>
+        <div class="user-upcoming-bookings">
+          <section class="user-section-header">
+            <h4 tabindex="0" class="total-cost upcoming">Upcoming Bookings: $<span></span></h4>
+          </section>
+          <ul tabindex="0" class="future-bookings-section" aria-label="Upcoming bookings">
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Created By: Carissa Hluchan</p>
+      <a href="https://github.com/CarissaHluchan/overlook-hotel"
+        aria-label="Created by Carissa Hluchan. See it on Github.">
+        See it on Github
+      </a>
+    </footer>
+  </div>
+
+  <script src="bundle.js"></script>
+
+</body>
+
+</html>
