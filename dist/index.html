@@ -55,12 +55,12 @@
         </form>
     </header>
     <main class="landing-page-main">
-      <section class="section-header" roll="sectionhaed">
+      <section class="section-header" role="sectionhead">
         <h3>Rooms at Overlook/Rooms available <span id="searchedDate" class="hidden">on mm/dd/yyyy</span></h3>
         <p class="sign-in-to-book-message">Sign in to book a room</p>
       </section>
-      <section roll="list" class="main-search-results">
-      </section>
+      <ul class="main-search-results" aria-label="rooms available list" tabindex="0">
+      </ul>
     </main>
     <footer>
       <p>Created By: Carissa Hluchan</p>
@@ -207,7 +207,7 @@
       <a href="https://github.com/CarissaHluchan/overlook-hotel">See it on Github</a>
     </footer>
   </div>
- 
+
   <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
