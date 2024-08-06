@@ -155,7 +155,7 @@ signInButton.addEventListener('click', (event) => {
 });
 
 function addEventListenersToDeleteButtons() {
-    const deleteButtons = document.querySelectorAll('.detele-room-booking');
+    const deleteButtons = document.querySelectorAll('.delete-room-booking');
     deleteButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             const bookingId = event.target.getAttribute('booking-id');

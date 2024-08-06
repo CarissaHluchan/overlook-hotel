@@ -29,9 +29,11 @@
   h2 {
     width: clamp(256px, 95vw, 600px);
     margin-left: 2vw;
+    font-size: clamp(16px, 1vw, 28px);
     /* border: 2px solid red; */
   }
 
   .sign-in-to-book-message {
     margin-right: 1vw;
+    font-size: clamp(16px, 1vw, 28px);
   }
