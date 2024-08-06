@@ -15,7 +15,7 @@
 .user-rooms-past,
 .user-upcoming-bookings {
   height: max(63vh);
-  /* width: clamp(431px, 48vw, 730px); */
+  width: clamp(450px, 48vw, 1000px);
   overflow-y: scroll;
   /* border: 3px solid purple; */
 }
@@ -23,7 +23,7 @@
 .user-section-header {
   color: var(--text-white);
   height: 4vh;
-  width: clamp(431px, 48vw, 730px);
+  /* width: clamp(355px, 93vw, 950px); */
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -32,7 +32,7 @@
 
 h3,
 h4 {
-  font-size: clamp(16px, 1vw, 28px);
+  font-size: clamp(12px, 1.5vw, 28px);
   /* width: clamp(150px, 15vw, 225px); */
   margin: 0;
   /* border: 3px solid blue; */
@@ -82,5 +82,6 @@ h4 {
 .show-past-bookings-button {
   color: var(--text-black);
   border-color: var(--text-black);
-  width: 18vw;
+  /* width: 18vw; */
+  margin-left: 1vw;
 }

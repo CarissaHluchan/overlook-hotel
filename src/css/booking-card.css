@@ -21,33 +21,33 @@
 
 .room-details {
   /* height: clamp(194px, 13vh, 235px); */
-  width: clamp(139px, 28vw, 336px);
-  margin-top: 0.25vh;
+  width: clamp(150px, 43vw, 336px);
+  /* margin-top: 0.25vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
 }
 
 .room-response {
   /* height: clamp(194px, 13vh, 235px); */
-  width: clamp(180px, 31vw, 334px);
-  margin-top: 0.25vh;
+  width: clamp(164px, 33vw, 334px);
+  /* margin-top: 0.25vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
 }
 
 .room-info,
 .room-cost {
-  margin-top: 0.5vh;
+  /* margin-top: 0.5vh; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   /* flex-wrap: wrap; */
   align-content: flex-start;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 .response {
@@ -73,6 +73,6 @@
 }
 
 .book-room-button {
-  width: clamp(42px, 5vw, 50px);
+  width: clamp(42px, 5vw, 60px);
   font-size: clamp(10px, 1vw, 13px);
 }
