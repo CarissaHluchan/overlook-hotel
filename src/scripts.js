@@ -1,13 +1,9 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
 /**------------------------// Imports //----------------------------*/
-// An example of how you tell webpack to use a CSS (SCSS) file
+/*--// webpack to use a CSS (SCSS) file //--*/
 import './css/styles.css';
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 /*---// Images //---*/
-import './images/turing-logo.png'
 import './images/overlooklogo.png'
 import './images/overlook.png'
 import './images/delete.png'
@@ -27,15 +23,10 @@ import {
     showUsersFutureBookingsTotalCost,
     setRoomsAvailabeOnDateUserSearchHeader,
     showUsersRoomSearchResults,
-
 } from './domUpdates.js'
 
 /*---// CORE Functions //---*/
-import {
-    getRoomsByDate,
-    getRoomsByType,
-    filterRoomsByDateAndType
-} from './rooms.js'
+import { filterRoomsByDateAndType } from './rooms.js'
 
 import {
     getUsersBookings,
@@ -58,17 +49,8 @@ import {
 var loggedInUser = null;
 var allBookings = [];
 var allRooms = [];
-var filteredRooms = [];
-var loggedInUsersBookings = [];
 
 /**--------------------// DOM Nodes //----------------------------*/
-/*----// Page Views //----*/
-const landingPage = document.querySelector('.landing-page');
-const loginPage = document.querySelector('.login-page');
-const userDashboard = document.querySelector('.user-dashboard');
-const usersPastBookingsWithHeader = document.querySelector('.user-rooms.past');
-const usersRoomSearchResultsWithHeader = document.querySelector('.user-rooms.search');
-
 /*----// Buttons //----*/
 /** Name and Logo */
 const goToLandingPageButtons = document.querySelectorAll('.go-to-landing-page-button');
@@ -81,7 +63,7 @@ const usernameInput = document.getElementById('username');
 const passwordInput = document.getElementById('password');
 /* Search */
 const landingPageSearchButton = document.querySelector('.landing-page-search-button');
-const userRoomSeachButton = document.querySelector('.user-room-search-button');
+const userRoomSearchButton = document.querySelector('.user-room-search-button');
 const showPastBookingsButton = document.querySelector('.show-past-bookings-button')
 
 /*----// Filters //----*/
@@ -90,11 +72,6 @@ const landingPageFilterByRoomType = document.querySelector('.landing-page .filte
 
 const userSearchFilterByDate = document.querySelector('.user-dashboard .filter-by-date');
 const userSearchFilterByRoomType = document.querySelector('.user-dashboard .filter-by-room-type');
-
-/*----// Room card //----*/
-// const roomResponse = document.querySelector('.room-response');
-// const roomInfo = document.querySelector('.room-info');
-// const roomCost = document.querySelector('.room-cost');
 
 /**-------------------// Event Listeners //---------------------------*/
 window.addEventListener('load', start);
@@ -118,16 +95,8 @@ showPastBookingsButton.addEventListener('click', (event) => {
     showUserDashboard();
 });
 
-userRoomSeachButton.addEventListener('click', (event) => {
-    const userSearchFilterByDateValue = userSearchFilterByDate.value.replaceAll('-', '/').trim();
-    const userSearchFilterByRoomTypeValue = userSearchFilterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
-    const roomsFilteredByDateAndType =
-        filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
-
-    setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
-    showUsersRoomSearchResults(roomsFilteredByDateAndType);
-    addEventListenersToBookThisRoomButton();
-    showUserSearchResultsPage();
+userRoomSearchButton.addEventListener('click', (event) => {
+    updateUserRoomSearchResults();
 });
 
 landingPageSearchButton.addEventListener('click', (event) => {
@@ -163,7 +132,7 @@ signInButton.addEventListener('click', (event) => {
 });
 
 function addEventListenersToDeleteButtons() {
-    const deleteButtons = document.querySelectorAll('.detele-room-booking');
+    const deleteButtons = document.querySelectorAll('.delete-room-booking');
     deleteButtons.forEach(button => {
         button.addEventListener('click', (event) => {
             const bookingId = event.target.getAttribute('booking-id');
@@ -188,7 +157,6 @@ function addEventListenersToDeleteButtons() {
                 });
         });
     });
-
 }
 
 function addEventListenersToBookThisRoomButton() {
@@ -203,6 +171,7 @@ function addEventListenersToBookThisRoomButton() {
                 .then(json => {
                     allBookings.push(json.newBooking);
                     updateUsersFutureBookings();
+                    updateUserRoomSearchResults();
                     console.log(json.message);
                 })
 
@@ -213,7 +182,7 @@ function addEventListenersToBookThisRoomButton() {
     });
 }
 
-/**------------------// DOM functions //------------------------------*/
+/**------------------------// Functions //------------------------------*/
 
 function start() {
     Promise.all([
@@ -247,5 +216,17 @@ function updateUsersFutureBookings() {
     displayUsersPastAndFutureBookings(pastAndFutureBookings, allRooms);
     showUsersFutureBookingsTotalCost(getTotalCost(pastAndFutureBookings.upcoming, allRooms));
     addEventListenersToDeleteButtons();
+    showUserSearchResultsPage();
+}
+
+function updateUserRoomSearchResults() {
+    const userSearchFilterByDateValue = userSearchFilterByDate.value.replaceAll('-', '/').trim();
+    const userSearchFilterByRoomTypeValue = userSearchFilterByRoomType.value.replaceAll('-', ' ').toLowerCase().trim();
+    const roomsFilteredByDateAndType =
+        filterRoomsByDateAndType(userSearchFilterByDateValue, userSearchFilterByRoomTypeValue, allRooms, allBookings);
+
+    setRoomsAvailabeOnDateUserSearchHeader(userSearchFilterByDate.value);
+    showUsersRoomSearchResults(roomsFilteredByDateAndType);
+    addEventListenersToBookThisRoomButton();
     showUserSearchResultsPage();
 }

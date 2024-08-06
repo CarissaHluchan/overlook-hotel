@@ -13,7 +13,6 @@
   }
   
   body {
-    /* background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%); */
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
@@ -38,23 +37,3 @@
       cursor: pointer;
     }
   }
-  
-  /* width */
-  /* ::-webkit-scrollbar {
-      width: 10px;
-    } */
-  
-  /* Track */
-  /* ::-webkit-scrollbar-track {
-      background: var(--text-white);
-    } */
-  
-  /* Handle */
-  /* ::-webkit-scrollbar-thumb {
-    background: var(--secondary-color);
-    } */
-  
-  /* Handle on hover */
-  /* ::-webkit-scrollbar-thumb:hover {
-    background: var(--text-black);
-    } */

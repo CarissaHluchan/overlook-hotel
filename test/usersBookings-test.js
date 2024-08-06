@@ -13,9 +13,9 @@ const { roomsSampleData } = require('../src/data-sample/rooms-sample.js');
 
 describe('List of a customer\'s bookings', () => {
     it('Should return a list of rooms booked by a given user', () => {
-        let userID = 9;
-        let bookings = bookingsSampleData;
-        let expected = [
+        const userID = 9;
+        const bookings = bookingsSampleData;
+        const expected = [
             {
                 "id": "5fwrgu4i7k55hl6sz",
                 "userID": 9,
@@ -32,16 +32,16 @@ describe('List of a customer\'s bookings', () => {
             },
         ];
 
-        let results = getUsersBookings(userID, bookings);
+        const results = getUsersBookings(userID, bookings);
 
         expect(results).to.deep.equal(expected);
     });
 
     it('Should return a list of rooms booked by a different user', () => {
-        let userID = 19;
-        let bookings = bookingsSampleData;
+        const userID = 19;
+        const bookings = bookingsSampleData;
 
-        let expected = [
+        const expected = [
             {
                 "id": "5fwrgu4i7k55hl6th",
                 "userID": 19,
@@ -51,18 +51,18 @@ describe('List of a customer\'s bookings', () => {
             },
         ];
 
-        let results = getUsersBookings(userID, bookings);
+        const results = getUsersBookings(userID, bookings);
 
         expect(results).to.deep.equal(expected);
     });
 
     it('Should return an empty array if the user has no bookings', () => {
-        let userID = 51;
-        let bookings = bookingsSampleData;
+        const userID = 51;
+        const bookings = bookingsSampleData;
 
-        let expected = [];
+        const expected = [];
 
-        let results = getUsersBookings(userID, bookings);
+        const results = getUsersBookings(userID, bookings);
 
         expect(results).to.deep.equal(expected);
     });
@@ -70,11 +70,11 @@ describe('List of a customer\'s bookings', () => {
 
 describe('Lists of users past and future bookings', () => {
     it('Should return 2 lists with the users past and future bookings', () => {
-        let userID = 43;
-        let bookings = bookingsSampleData;
-        let usersBookings = getUsersBookings(userID, bookings);
+        const userID = 43;
+        const bookings = bookingsSampleData;
+        const usersBookings = getUsersBookings(userID, bookings);
 
-        let expected = {
+        const expected = {
             past: [
                 {
                     id: '5fwrgu4i7k55hl6t5',
@@ -93,17 +93,17 @@ describe('Lists of users past and future bookings', () => {
             ]
         };
 
-        let results = getUsersPastAndFutureBookings(usersBookings)
+        const results = getUsersPastAndFutureBookings(usersBookings)
 
         expect(results).to.deep.equal(expected);
     });
 
     it('Should return an empty array for upcoming if there are no future bookings', () => {
-        let userID = 13;
-        let bookings = bookingsSampleData;
-        let usersBookings = getUsersBookings(userID, bookings);
+        const userID = 13;
+        const bookings = bookingsSampleData;
+        const usersBookings = getUsersBookings(userID, bookings);
 
-        let expected = {
+        const expected = {
             past: [
                 {
                     "id": "5fwrgu4i7k55hl6t6",
@@ -116,22 +116,22 @@ describe('Lists of users past and future bookings', () => {
             upcoming: []
         }
 
-        let results = getUsersPastAndFutureBookings(usersBookings)
+        const results = getUsersPastAndFutureBookings(usersBookings)
 
         expect(results).to.deep.equal(expected);
     });
 
     it('Should return empty arrays for past and upcoming if there are no bookings', () => {
-        let userID = 27;
-        let bookings = bookingsSampleData;
-        let usersBookings = getUsersBookings(userID, bookings);
+        const userID = 27;
+        const bookings = bookingsSampleData;
+        const usersBookings = getUsersBookings(userID, bookings);
 
-        let expected = {
+        const expected = {
             past: [],
             upcoming: []
         }
 
-        let results = getUsersPastAndFutureBookings(usersBookings)
+        const results = getUsersPastAndFutureBookings(usersBookings)
 
         expect(results).to.deep.equal(expected);
     });
@@ -139,42 +139,42 @@ describe('Lists of users past and future bookings', () => {
 
 describe('Total cost of a users bookings', () => {
     it('Should return a number which is the total cost of a users bookings', () => {
-        let userID = 9;
-        let bookings = bookingsSampleData;
-        let usersBookings = getUsersBookings(userID, bookings);
-        let rooms = roomsSampleData;
+        const userID = 9;
+        const bookings = bookingsSampleData;
+        const usersBookings = getUsersBookings(userID, bookings);
+        const rooms = roomsSampleData;
 
-        let expected = 470.92;
+        const expected = 470.92;
 
-        let results = getTotalCost(usersBookings, rooms);
+        const results = getTotalCost(usersBookings, rooms);
 
         expect(results).to.deep.equal(expected);
     });
 
     it('Should return zero if a users has no bookings', () => {
-        let userID = 51;
-        let bookings = bookingsSampleData;
-        let usersBookings = getUsersBookings(userID, bookings);
+        const userID = 51;
+        const bookings = bookingsSampleData;
+        const usersBookings = getUsersBookings(userID, bookings);
 
-        let rooms = roomsSampleData;
+        const rooms = roomsSampleData;
 
-        let expected = 0;
+        const expected = 0;
 
-        let results = getTotalCost(usersBookings, rooms);
+        const results = getTotalCost(usersBookings, rooms);
 
         expect(results).to.deep.equal(expected);
     });
 
     it('Should return zero if there are no rooms', () => {
-        let userID = 51;
-        let bookings = bookingsSampleData;
-        let usersBookings = getUsersBookings(userID, bookings);
+        const userID = 51;
+        const bookings = bookingsSampleData;
+        const usersBookings = getUsersBookings(userID, bookings);
 
-        let rooms = [];
+        const rooms = [];
 
-        let expected = 0;
+        const expected = 0;
 
-        let results = getTotalCost(usersBookings, rooms);
+        const results = getTotalCost(usersBookings, rooms);
 
         expect(results).to.deep.equal(expected);
     });

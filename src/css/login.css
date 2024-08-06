@@ -1,13 +1,11 @@
 /* ---------------------------------------Login-Form------------------------------------- */
 .login-form {
     height: clamp(200px, 15vh, 235px);
-    /* width: clamp(400px, 45vw, 700px);  */
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     font-size: clamp(16px, 1vw, 28px);
     Margin-top: 17vh;
-    /* border: 3px solid black; */
   }
   
   .login-form input {

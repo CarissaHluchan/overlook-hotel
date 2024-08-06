@@ -21,53 +21,56 @@ const usersRoomSearchResults = document.querySelector('.user-rooms-search .user-
 
 /**--------------------// Page Views //----------------------------*/
 export function showLandingPage() {
-    unhideElement(landingPage);
-    hideElement(loginPage);
-    hideElement(userDashboard);
+  unhideElement(landingPage);
+  hideElement(loginPage);
+  hideElement(userDashboard);
 }
 
 export function showLoginPage() {
-    hideElement(landingPage);
-    unhideElement(loginPage);
-    hideElement(userDashboard);
+  hideElement(landingPage);
+  unhideElement(loginPage);
+  hideElement(userDashboard);
 }
 
 export function showUserDashboard() {
-    hideElement(landingPage);
-    hideElement(loginPage);
-    unhideElement(userDashboard);
-    unhideElement(usersPastBookingsWithHeader);
-    hideElement(usersRoomSearchResultsWithHeader);
+  hideElement(landingPage);
+  hideElement(loginPage);
+  unhideElement(userDashboard);
+  unhideElement(usersPastBookingsWithHeader);
+  hideElement(usersRoomSearchResultsWithHeader);
 }
 
 export function showUserSearchResultsPage() {
-    hideElement(landingPage);
-    hideElement(loginPage);
-    unhideElement(userDashboard);
-    hideElement(usersPastBookingsWithHeader);
-    unhideElement(usersRoomSearchResultsWithHeader);
+  hideElement(landingPage);
+  hideElement(loginPage);
+  unhideElement(userDashboard);
+  hideElement(usersPastBookingsWithHeader);
+  unhideElement(usersRoomSearchResultsWithHeader);
 }
 
 /**--------------------// Functions //----------------------------*/
 export function hideElement(element) {
-    element.classList.add('hidden');
-    element.ariaHidden = 'true';
-    element.disabled = 'true';
+  element.classList.add('hidden');
+  element.ariaHidden = 'true';
+  element.disabled = 'true';
 }
 export function unhideElement(element) {
-    element.classList.remove('hidden');
-    element.ariaHidden = 'flase';
-    element.removeAttribute('disabled');
+  element.classList.remove('hidden');
+  element.ariaHidden = 'false';
+  element.removeAttribute('disabled');
 }
 
 export function showLandingPageRoomCards(rooms) {
-    mainSearchResults.innerHTML = '';
-    rooms.forEach(room => mainSearchResults.innerHTML += createLandingPageRoomCard(room))
+  mainSearchResults.innerHTML = '';
+  rooms.forEach(room => mainSearchResults.innerHTML += createLandingPageRoomCard(room))
+  if (!rooms.length) {
+    mainSearchResults.innerHTML = '😢 We are so very sorry!!!😢 There are no rooms available that match your search criteria. Please try again.';
+  }
 }
 
 export function createLandingPageRoomCard(room) {
-    return `<article class="booking-card">
-    <div class="room-details">
+  return `<li class="booking-card" aria-label="Room ${room.roomType}">
+    <div class="room-details" aria-hidden="true">
       <div class="room-info">
         <p>Room type:</p>
         <p>Bed size:</p>
@@ -81,52 +84,53 @@ export function createLandingPageRoomCard(room) {
     </div>
     <div class="room-response">
       <div class="room-info response">
-       <p>${room.roomType}</p>
-       <p>${room.bedSize}</p>
-       <p>${room.numBeds}</p>
-        <p>${room.bidet}</p>
-        <p>${room.number}</p>
+        <p aria-label="Room type">${room.roomType}</p>
+        <p aria-label="Bed size">${room.bedSize}</p>
+        <p aria-label="Number of Beds">${room.numBeds}</p>
+        <p aria-label="Has bidet">${room.bidet}</p>
+        <p aria-label="Room number">${room.number}</p>
       </div>
       <div class="room-cost response">
-        <p>${room.costPerNight}</p>
+        <p aria-label="Cost per night">$${room.costPerNight}</p>
       </div>
     </div>
-  </article>`;
+  </li>`;
 }
 
 export function setRoomsAvailabeOnDateHeader(dateString) {
-    if (dateString === '') {
-        roomsAvailabeOnDateHeader.classList.add('hidden');
-    } else {
-        roomsAvailabeOnDateHeader.innerHTML = `on ${dateString}`;
-        roomsAvailabeOnDateHeader.classList.remove('hidden');
-    }
+  if (dateString === '') {
+    roomsAvailabeOnDateHeader.classList.add('hidden');
+  } else {
+    roomsAvailabeOnDateHeader.innerHTML = `on ${dateString}`;
+    roomsAvailabeOnDateHeader.classList.remove('hidden');
+  }
 }
 
 export function updateLoggedInUsersNameHeader(name) {
-    loggedInUsersNameHeader.innerHTML = name;
+  loggedInUsersNameHeader.innerHTML = name;
 }
 
 
 export function showLoggedInUsersPastBooking(usersBookings, rooms) {
-    usersPastBookings.innerHTML = '';
-    usersBookings.forEach(booking => {
-        const room = rooms.find(room => room.number === booking.roomNumber);
-        usersPastBookings.innerHTML += createLoggedInUsersBookingCard(booking, room);
-    });
+  usersPastBookings.innerHTML = '';
+  usersBookings.forEach(booking => {
+    const room = rooms.find(room => room.number === booking.roomNumber);
+    usersPastBookings.innerHTML += createLoggedInUsersBookingCard(booking, room);
+  });
 }
 
 export function showLoggedInUsersFutureBookings(usersBookings, rooms) {
-    usersFutureBookings.innerHTML = '';
-    usersBookings.forEach(booking => {
-        const room = rooms.find(room => room.number === booking.roomNumber);
-        usersFutureBookings.innerHTML += createLoggedInUsersBookingCard(booking, room, true);
-    });
+  usersFutureBookings.innerHTML = '';
+  usersBookings.forEach(booking => {
+    const room = rooms.find(room => room.number === booking.roomNumber);
+    usersFutureBookings.innerHTML += createLoggedInUsersBookingCard(booking, room, true);
+  });
 }
 
 export function createLoggedInUsersBookingCard(userBooking, room, allowDeleteBooking = false) {
-    let loggedInUsersBookingCard = `<article class="booking-card" booking-id="${userBooking.id}">
-    <div class="room-details">
+  let loggedInUsersBookingCard = 
+  `<li class="booking-card" booking-id="${userBooking.id}" aria-label="Booking on ${userBooking.date} Room ${room.number}">
+    <div class="room-details" aria-hidden="true">
       <div class="room-info">
         <p>Date:</p>
         <p>Room type:</p>
@@ -141,55 +145,60 @@ export function createLoggedInUsersBookingCard(userBooking, room, allowDeleteBoo
     </div>
     <div class="room-response">
       <div class="room-info response">
-        <p>${userBooking.date}</p>
-        <p>${room.roomType}</p>
-       <p>${room.bedSize}</p>
-       <p>${room.numBeds}</p>
-        <p>${room.bidet}</p>
-        <p>${room.number}</p>
+        <p aria-label="Date of booking">${userBooking.date}</p>
+        <p aria-label="Room type">${room.roomType}</p>
+        <p aria-label="Bed size">${room.bedSize}</p>
+        <p aria-label="Number of Beds">${room.numBeds}</p>
+        <p aria-label="Has bidet">${room.bidet}</p>
+        <p aria-label="Room number">${room.number}</p>
       </div>
       <div class="room-cost response">
-        <p>${room.costPerNight}</p>
+        <p aria-label="Cost per night">$${room.costPerNight}</p>
       </div>
     </div>`;
-    if (allowDeleteBooking) {
-        loggedInUsersBookingCard += `<div class="booking-options">
-            <img type="button" class="detele-room-booking" src="./images/delete.png" alt="detele room from booking" booking-id="${userBooking.id}">
+  if (allowDeleteBooking) {
+    loggedInUsersBookingCard += `<div class="booking-options">
+            <img aria-label="delete room from bookings" tabindex="0" role="button" type="button" class="delete-room-booking" src="./images/delete.png" alt="delete room from booking" booking-id="${userBooking.id}">
         </div>`;
-    }
-    return loggedInUsersBookingCard;
+  }
+  
+  loggedInUsersBookingCard += '</li>';
+  return loggedInUsersBookingCard;
 }
 
 export function displayUsersPastAndFutureBookings(pastAndFutureBookings, rooms) {
-    showLoggedInUsersPastBooking(pastAndFutureBookings.past, rooms);
-    showLoggedInUsersFutureBookings(pastAndFutureBookings.upcoming, rooms);
+  showLoggedInUsersPastBooking(pastAndFutureBookings.past, rooms);
+  showLoggedInUsersFutureBookings(pastAndFutureBookings.upcoming, rooms);
 }
 
 export function removeBookingCard(bookingId) {
-    const bookingCardElement = document.querySelector(`.booking-card[booking-id="${bookingId}"]`);
-    bookingCardElement.remove();
+  const bookingCardElement = document.querySelector(`.booking-card[booking-id="${bookingId}"]`);
+  bookingCardElement.remove();
 }
 
 export function showUsersPastBookingsTotalCost(totalCost) {
-    usersPastBookingsTotalCost.innerHTML = Number.parseFloat(totalCost).toFixed(2);
+  usersPastBookingsTotalCost.innerHTML = Number.parseFloat(totalCost).toFixed(2);
 }
 
 export function showUsersFutureBookingsTotalCost(totalCost) {
-    usersFutureBookingsTotalCost.innerHTML = Number.parseFloat(totalCost).toFixed(2);
+  usersFutureBookingsTotalCost.innerHTML = Number.parseFloat(totalCost).toFixed(2);
 }
 
 export function setRoomsAvailabeOnDateUserSearchHeader(dateString) {
-    roomsAvailabeOnDateUserSearchHeader.innerHTML = dateString;
+  roomsAvailabeOnDateUserSearchHeader.innerHTML = dateString;
 }
 
 export function showUsersRoomSearchResults(rooms) {
   usersRoomSearchResults.innerHTML = '';
   rooms.forEach(room => usersRoomSearchResults.innerHTML += createUserSearchRoomCard(room));
+  if (!rooms.length) {
+    usersRoomSearchResults.innerHTML += noSearchRusultsMessage();
+  }
 }
 
 export function createUserSearchRoomCard(room) {
-    return `<article class="booking-card">
-              <div class="room-details">
+  return `<li class="booking-card" aria-label="Room ${room.roomType}">
+              <div class="room-details" aria-hidden="true">
                 <div class="room-info">
                   <p>Room type:</p>
                   <p>Bed size:</p>
@@ -203,18 +212,26 @@ export function createUserSearchRoomCard(room) {
               </div>
               <div class="room-response">
                 <div class="room-info response">
-                  <p>${room.roomType}</p>
-                  <p>${room.bedSize}</p>
-                  <p>${room.numBeds}</p>
-                  <p>${room.bidet}</p>
-                  <p>${room.number}</p>
+                  <p aria-label="Room type">${room.roomType}</p>
+                  <p aria-label="Bed size">${room.bedSize}</p>
+                  <p aria-label="Number of Beds">${room.numBeds}</p>
+                  <p aria-label="Has bidet">${room.bidet}</p>
+                  <p aria-label="Room number">${room.number}</p>
                 </div>
                 <div class="room-cost response">
-                  <p>${room.costPerNight}</p>
+                  <p aria-label="Cost per night">$${room.costPerNight}</p>
                 </div>
               </div>
-              <form class="booking-options">
+              <div class="booking-options">
                 <button room-number="${room.number}" type="button" class="book-room-button">Book this Room</button>
-              </form>
-            </article>`;
+              </div>
+            </li>`;
+}
+
+export function noSearchRusultsMessage() {
+  return `<li roll="listitem" class="booking-card">
+          <p>😢 We are so very sorry!!!😢 <br>
+          There are no more rooms available that match your search criteria. <br>
+          Please adjust your search criteria and try again.</p>
+        </li>`;
 }

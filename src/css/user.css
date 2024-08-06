@@ -15,32 +15,22 @@
 .user-rooms-past,
 .user-upcoming-bookings {
   height: max(63vh);
-  /* width: clamp(431px, 48vw, 730px); */
+  width: clamp(450px, 48vw, 1000px);
   overflow-y: scroll;
-  /* border: 3px solid purple; */
 }
 
 .user-section-header {
   color: var(--text-white);
   height: 4vh;
-  width: clamp(431px, 48vw, 730px);
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* border: 3px solid black; */
 }
 
-h4,
-h5,
-.total-cost {
-  font-size: clamp(16px, 1vw, 28px);
-  /* width: clamp(150px, 15vw, 225px); */
+h3,
+h4 {
+  font-size: clamp(12px, 1.5vw, 28px);
   margin: 0;
-  /* border: 3px solid blue; */
-}
-
-h5 {
-  /* width: clamp(177px, 15vw, 225px); */
 }
 
 .user-bookings-section,
@@ -48,16 +38,22 @@ h5 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* border: 3px solid blue; */
+  margin: 0;
+  padding: 0;
 }
 
 .user-bookings-section {
   background-color: var(--tertiary-color);
-  /* height: min(65vh); */
 }
 
 .future-bookings-section {
   background-color: var(--second-acc-color);
+}
+
+.delete-room-booking {
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 /* ---------------------------------------User-Search-section------------------------------------- */
@@ -69,11 +65,10 @@ h5 {
 .user-rooms-search .booking-options {
   display: flex;
   justify-content: flex-end;
-  /* align-items: flex-start; */
 }
 
 .show-past-bookings-button {
   color: var(--text-black);
   border-color: var(--text-black);
-  width: 18vw;
+  margin-left: 1vw;
 }
