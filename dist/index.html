@@ -37,13 +37,15 @@
         <form class="search-room-form" aria-label="Room search">
           <p class="search-book-your-stay" tabindex="0">See our rooms</p>
           <search>
-            <label id="searchByDate" class="filter-label" for="landingPageSearchByDate"  aria-hidden="true"> Enter the Date:</label>
-            <input aria-label="search by date" id="landingPageSearchByDate" class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy"
-              value="" min="1997-01-01" max="2030-12-31">
+            <label id="searchByDate" class="filter-label" for="landingPageSearchByDate" aria-hidden="true"> Enter the
+              Date:</label>
+            <input aria-label="search by date" id="landingPageSearchByDate" class="filter-by-date" type="date"
+              name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01" max="2030-12-31">
           </search>
           <search>
             <label for="landingPageFilterRoomsByType" class="filter-label">Filter by Room Type:</label>
-            <select id="landingPageFilterRoomsByType" aria-labelledby="landingPageFilterRoomsByType" name="room type" class="filter-by-room-type">
+            <select id="landingPageFilterRoomsByType" aria-labelledby="landingPageFilterRoomsByType" name="room type"
+              class="filter-by-room-type">
               <option value="">--select room type--</option>
               <option value="residential-suite">Residential Suite</option>
               <option value="junior-suite">Junior Suite</option>
@@ -131,8 +133,8 @@
           <p class="search-book-your-stay" tabindex="0">Book Your Stay</p>
           <search>
             <label class="filter-label" for="loggedInSearchByDate" aria-hidden="true"> Enter the Date:</label>
-            <input id="loggedInSearchByDate" class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy" value="" min="1997-01-01"
-              max="2030-12-31">
+            <input id="loggedInSearchByDate" class="filter-by-date" type="date" name="begin" placeholder="mm-dd-yyyy"
+              value="" min="1997-01-01" max="2030-12-31">
           </search>
           <search>
             <label for="logedInFilterByRoom" class="filter-label">Filter by Room Type:</label>
@@ -185,7 +187,6 @@
     </footer>
   </div>
 
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
   <script src="bundle.js"></script>
 
 </body>

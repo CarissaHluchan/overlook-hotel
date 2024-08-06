@@ -5,7 +5,6 @@ nav {
   height: clamp(65px, 5vh, 150px);
   width: clamp(394px, 100%, 100%);
   border-bottom: 1px solid var(--secondary-color);
-  /* border: 2px solid blue; */
 }
 
 .go-to-landing-page-button,
@@ -16,7 +15,6 @@ nav {
   justify-content: flex-start;
   align-items: center;
   margin-left: 2vw;
-  /* border: 2px solid red; */
 
   img {
     width: clamp(35px, 3vw, 80px);
@@ -35,7 +33,6 @@ nav {
   font-size: clamp(10px, 3vw, 35px);
   margin-left: 10px;
   font-weight: 700;
-  /* border: 2px solid orange; */
 }
 
 .login,
@@ -54,7 +51,6 @@ nav {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  /* border: 2px solid green; */
 }
 
 .title-message {
@@ -69,7 +65,6 @@ h1 {
   font-size: clamp(24px, 4vw, 77px);
   margin: 1vh;
   text-shadow: var(--text-shadow);
-  /* border: 2px solid green; */
 }
 
 .welcome-to {

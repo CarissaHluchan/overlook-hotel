@@ -2,9 +2,7 @@
   font-size: clamp(13px, 1vw, 16px);
   margin: 1vh;
   background-color: var(--text-white);
-  /* height: clamp(223px, 20vh, 225px); */
   width: clamp(300px, 86vw, 400px);
-  /* width: min(400px); */
   display: flex;
   justify-content: space-around;
   align-content: flex-start;
@@ -20,34 +18,25 @@
 }
 
 .room-details {
-  /* height: clamp(194px, 13vh, 235px); */
   width: clamp(150px, 43vw, 336px);
-  /* margin-top: 0.25vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border: 2px solid orange; */
 }
 
 .room-response {
-  /* height: clamp(194px, 13vh, 235px); */
   width: clamp(164px, 33vw, 334px);
-  /* margin-top: 0.25vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* border: 2px solid orange; */
 }
 
 .room-info,
 .room-cost {
-  /* margin-top: 0.5vh; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* flex-wrap: wrap; */
   align-content: flex-start;
-  /* border: 2px solid green; */
 }
 
 .response {
@@ -55,13 +44,11 @@
 }
 
 .booking-options {
-  /* height: clamp(194px, 19vh, 216px); */
   width: clamp(108px, 120w, 170px);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
-  /* border: 3px solid cyan; */
 }
 
 .delete-room-booking {

@@ -17,29 +17,20 @@
   height: max(63vh);
   width: clamp(450px, 48vw, 1000px);
   overflow-y: scroll;
-  /* border: 3px solid purple; */
 }
 
 .user-section-header {
   color: var(--text-white);
   height: 4vh;
-  /* width: clamp(355px, 93vw, 950px); */
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* border: 3px solid black; */
 }
 
 h3,
 h4 {
   font-size: clamp(12px, 1.5vw, 28px);
-  /* width: clamp(150px, 15vw, 225px); */
   margin: 0;
-  /* border: 3px solid blue; */
-}
-
-h4 {
-  /* width: clamp(177px, 15vw, 225px); */
 }
 
 .user-bookings-section,
@@ -49,12 +40,10 @@ h4 {
   align-items: center;
   margin: 0;
   padding: 0;
-  /* border: 3px solid blue; */
 }
 
 .user-bookings-section {
   background-color: var(--tertiary-color);
-  /* height: min(65vh); */
 }
 
 .future-bookings-section {
@@ -76,12 +65,10 @@ h4 {
 .user-rooms-search .booking-options {
   display: flex;
   justify-content: flex-end;
-  /* align-items: flex-start; */
 }
 
 .show-past-bookings-button {
   color: var(--text-black);
   border-color: var(--text-black);
-  /* width: 18vw; */
   margin-left: 1vw;
 }
