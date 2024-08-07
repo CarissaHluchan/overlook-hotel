@@ -1,4 +1,4 @@
-# 🛎️ [Overlook Hotel](https://carissahluchan.github.io/overlook-hotel/) 🧳
+# <picture><source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6ce_fe0f/512.webp" type="image/webp"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6ce_fe0f/512.gif" alt="🛎" width="32" height="32"></picture> [Overlook Hotel](https://carissahluchan.github.io/overlook-hotel/) <picture><source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6ce_fe0f/512.webp" type="image/webp"><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6ce_fe0f/512.gif" alt="🛎" width="32" height="32"></picture>
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
