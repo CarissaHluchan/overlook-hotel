@@ -1,4 +1,4 @@
-# 🏨 [Overlook Hotel](https://carissahluchan.github.io/overlook-hotel/) 🏨
+# 🛎️ [Overlook Hotel](https://carissahluchan.github.io/overlook-hotel/) 🧳
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
