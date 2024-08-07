@@ -25,7 +25,7 @@ A hotel booking tool for hotel customers to search rooms at the Overlook Hotel, 
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
-This solo project took roughly 7 days or 50 hours to complete in my 12th week of an intensive boot camp for coding in JS development.
+This solo project took roughly 7 days or 30 hours to complete in my 12th week of an intensive boot camp for coding in JS development.
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
