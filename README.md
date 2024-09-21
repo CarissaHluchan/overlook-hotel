@@ -4,6 +4,16 @@
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
 A hotel booking tool for hotel customers to search rooms at the Overlook Hotel, manage room bookings and calculate bills.
 
+### Technology:
+1. Vanilla JavaScript
+2. HTML
+3. CSS
+
+### Design:
+[Design Board](https://miro.com/app/board/uXjVKvk8-HU=/)
+
+<img width="1057" alt="Screenshot 2024-09-20 at 6 22 22 PM" src="https://github.com/user-attachments/assets/432e6612-3073-4473-b332-d5db3c00fa8a">
+
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
 > [!WARNING]
