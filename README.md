@@ -9,23 +9,24 @@ A hotel booking tool for hotel customers to search rooms at the Overlook Hotel, 
 2. HTML
 3. CSS
 
-### Design:
-[Design Board](https://miro.com/app/board/uXjVKvk8-HU=/)
-
-<img width="1057" alt="Screenshot 2024-09-20 at 6 22 22 PM" src="https://github.com/user-attachments/assets/432e6612-3073-4473-b332-d5db3c00fa8a">
-
 ### Installation Instructions:
+**1. Click the title to open the app.**
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
+
+**2. _(optional) Fork this project to your own Github account._**
 > [!WARNING]
 > **[Node.js](https://nodejs.org/en), [npm](https://www.npmjs.com/) & a [locally running API](https://github.com/turingschool-examples/overlook-api) are required to run this app.**<br>
 > _Please ensure you have both installed on your machine before proceeding._
-
-- _(optional) Fork this project to your own Github account._
 - Clone the repository to your local machine.
 - `cd` into the project folder.
 - Use the `npm install` command to install the project dependencies.
 - Use the `npm start` command to run webpack.
 - Check the console for the `PORT` and copy/paste `localhost:PORT` into your web browser.
+
+### Design:
+[Design Board](https://miro.com/app/board/uXjVKvk8-HU=/)
+
+<img width="1057" alt="Screenshot 2024-09-20 at 6 22 22 PM" src="https://github.com/user-attachments/assets/432e6612-3073-4473-b332-d5db3c00fa8a">
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
