@@ -10,8 +10,8 @@ A hotel booking tool for hotel customers to search rooms at the Overlook Hotel, 
 3. CSS
 
 ### Installation Instructions:
-**1. Click the title to open the app.**
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
+**1. Click the title to open the app.**
 
 **2. _(optional) Fork this project to your own Github account._**
 > [!WARNING]
