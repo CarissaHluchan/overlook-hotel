@@ -2,7 +2,7 @@
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
-A hotel booking tool for hotel customers to search rooms at the Overlook Hotel, manage room bookings and calculate bills.
+A hotel booking tool for hotel customers to search for rooms at the Overlook Hotel, manage room bookings and calculate bills.
 
 ### Technology:
 1. Vanilla JavaScript
