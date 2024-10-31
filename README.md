@@ -8,6 +8,7 @@ A hotel booking tool for hotel customers to search for rooms at the Overlook Hot
 1. Vanilla JavaScript
 2. HTML
 3. CSS
+4. Mocha, Chai
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
